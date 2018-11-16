@@ -1,0 +1,10 @@
+CREATE TABLE Type_Biome (
+Biome_name		CHAR(13),
+Type_name		CHAR(8),
+PRIMARY KEY (Biome_name, Type_name),
+FOREIGN KEY (Biome_name)
+  REFERENCES Biome(name)
+  ON DELETE CASCADE,
+FOREIGN KEY Biome(Type_name)
+  REFERENCES Type(name)
+  ON DELETE CASCADE)
