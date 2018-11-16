@@ -1,5 +1,5 @@
 CREATE TABLE Location (
-latitude 		FLOAT(8,6),
-longitude 		FLOAT(8,6),
+latitude 		FLOAT(7),
+longitude 		FLOAT(7),
 name			CHAR(10),
 PRIMARY KEY (latitude, longitude));
