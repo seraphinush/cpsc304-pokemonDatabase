@@ -5,4 +5,4 @@ power 			INTEGER,
 PRIMARY KEY (name),
 FOREIGN KEY (Type_name)
   REFERENCES Type(name)
-  ON DELETE CASCADE)
+  ON DELETE CASCADE);

@@ -6,4 +6,4 @@ minHeight 		DECIMAL(3,2),
 maxHeight 		DECIMAL(3,2),
 minWeight 		DECIMAL(3,2),
 maxWeight 		DECIMAL(3,2),
-PRIMARY KEY (name))
+PRIMARY KEY (name));

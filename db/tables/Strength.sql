@@ -8,4 +8,4 @@ FOREIGN KEY (AttackType_name)
   ON DELETE CASCADE,
 FOREIGN KEY (DefendType_name)
   REFERENCES Type(name)
-  ON DELETE CASCADE)
+  ON DELETE CASCADE);

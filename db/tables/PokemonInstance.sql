@@ -11,4 +11,4 @@ nickName 			CHAR(10),
 PRIMARY KEY (id),
 FOREIGN KEY (Species_name)
   REFERENCES Species(name)
-  ON DELETE CASCADE)
+  ON DELETE CASCADE);

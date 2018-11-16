@@ -8,4 +8,4 @@ FOREIGN KEY (Biome_name)
   ON DELETE CASCADE,
 FOREIGN KEY (latitude, longitude)
   REFERENCES Location(latitude, longitude)
-  ON DELETE CASCADE)
+  ON DELETE CASCADE);

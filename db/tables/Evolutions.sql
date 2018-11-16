@@ -7,4 +7,4 @@ FOREIGN KEY (PreEvolution_name)
   ON DELETE CASCADE,
 FOREIGN KEY (PostEvolution_name)
   REFERENCES Species(name)
-  ON DELETE CASCADE)
+  ON DELETE CASCADE);
