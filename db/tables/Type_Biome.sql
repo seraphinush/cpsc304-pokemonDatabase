@@ -5,6 +5,6 @@ PRIMARY KEY (Biome_name, Type_name),
 FOREIGN KEY (Biome_name)
   REFERENCES Biome(name)
   ON DELETE CASCADE,
-FOREIGN KEY Biome(Type_name)
+FOREIGN KEY (Type_name)
   REFERENCES Type(name)
   ON DELETE CASCADE);
