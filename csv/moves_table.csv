@@ -1,0 +1,130 @@
+﻿name,fast_special,Type_name,power
+Cut,fast,Normal,50
+Vine Whip,fast,Grass,45
+Poison Sting,fast,Poison,15
+Thunder Shock,fast,Electric,40
+Tackle,fast,Normal,40
+Mud Shot,fast,Ground,55
+Spark,fast,Electric,65
+Rock Throw,fast,Rock,50
+Peck,fast,Flying,35
+Feint Attack,fast,Dark,60
+Wing Attack,fast,Flying,60
+Ice Shard,fast,Ice,40
+Sludge Bomb,fast,Poison,90
+Water Gun,fast,Water,40
+Splash,fast,Normal,0
+Fire Fang,fast,Fire,65
+Fury Cutter,fast,Bug,40
+Bite,fast,Dark,60
+Mud Slap,fast,Ground,20
+Zen Headbutt,fast,Psychic,80
+Rock Smash,fast,Fighting,40
+Confusion,fast,Psychic,50
+Pound,fast,Normal,40
+Poison Jab,fast,Poison,80
+Sucker Punch,fast,Dark,70
+Solar BeamWhip,fast,Grass,120
+Steel Wing,fast,Steel,70
+Vine Petal Blizzard,fast,Grass,90
+Karate Chop,fast,Fighting,50
+Quick Attack,fast,Normal,40
+Low Kick,fast,Fighting,0
+Shadow Claw,fast,Ghost,70
+Acid,fast,Poison,40
+Frost Breath,fast,Ice,60
+Bug Bite,fast,Bug,60
+Metal Claw,fast,Steel,50
+Lick,fast,Ghost,30
+Bubble,fast,Water,40
+Bullet Punch,fast,Steel,40
+Razor Leaf,fast,Grass,55
+Mud Show,fast,Ground,55
+Scratch,fast,Normal,40
+Ember,fast,Fire,40
+Psycho Cut,fast,Psychic,70
+Dragon Breath,fast,Dragon,60
+Gunk Shot,special,Poison,120
+Poison Fang,special,Poison,50
+X-Scissor,special,Bug,80
+Thunder,special,Electric,110
+Dark Pulse,special,Dark,80
+Psyshock,special,Psychic,80
+Rock Slide,special,Rock,75
+Hyper Beam,special,Normal,150
+Dig,special,Ground,80
+Flame Charge,special,Fire,50
+Hyper Fang,special,Normal,80
+Low Sweep,special,Fighting,65
+Seed Bomb,special,Grass,80
+Sludge,special,Poison,65
+Ancient Power,special,Rock,60
+Bug Buzz,special,Bug,90
+Play Rough,special,Fairy,90
+Dragon Pulse,special,Dragon,85
+Fire Blast,special,Fire,110
+Bulldoze,special,Ground,60
+Magnet Bomb,special,Steel,60
+Hurricane,special,Flying,110
+Dragon Claw,special,Dragon,80
+Body Slam,special,Normal,85
+Ominous Wind,special,Ghost,60
+Stomp,special,Normal,65
+Signal Beam,special,Bug,75
+Earthquake,special,Ground,100
+Twister,special,Dragon,40
+Drill Run,special,Ground,80
+Flamethrower,special,Fire,90
+Draining Kiss,special,Fairy,50
+Iron Head,special,Steel,80
+Psychic,special,Psychic,90
+Scald,special,Water,80
+Icy Wind,special,Ice,55
+Solar Beam,special,Grass,120
+Moonblast,special,Fairy,95
+Petal Blizzard,special,Grass,90
+Megahorn,special,Bug,120
+Swift,special,Normal,60
+Bubble Beam,special,Water,65
+Leaf Blade,special,Grass,90
+Sludge Bomb,special,Poison,90
+Shadow Ball,special,Ghost,80
+Night Slash,special,Dark,70
+Disarming Voice,special,Fairy,40
+Wrap,special,Normal,15
+Discharge,special,Electric,80
+Dazzling Gleam,special,Fairy,80
+Brick Break,special,Fighting,75
+Air Cutter,special,Flying,60
+Hydro pump,special,Water,110
+Vice Grip,special,Normal,55
+Horn Attack,special,Normal,65
+Heat Wave,special,Fire,95
+Sludge Wave,special,Poison,95
+Water Pulse,special,Water,60
+Drill Peck,special,Flying,80
+Stone Edge,special,Rock,100
+Aerial Ace,special,Flying,60
+Thunderbolt,special,Electric,90
+Fury Cutter,special,Bug,40
+Brine,special,Water,65
+Submission,special,Fighting,80
+Power Gem,special,Rock,80
+Mud Bomb,special,Ground,65
+Ice Punch,special,Ice,75
+Psybeam,special,Psychic,65
+Flame Burst,special,Fire,70
+Flash Cannon,special,Steel,80
+Fire Punch,special,Fire,75
+Aqua Jet,special,Water,40
+Ice Beam,special,Ice,90
+Cross Chop,special,Fighting,100
+Power Whip,special,Grass,120
+Struggle,special,Normal,50
+Blizzard,special,Ice,110
+Rock Tomb,special,Rock,60
+Thunder Punch,special,Electric,75
+Flame Wheel,special,Fire,60
+Bone Club,special,Ground,65
+Aqua Tail,special,Water,90
+Cross Poison,special,Poison,70
