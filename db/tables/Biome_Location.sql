@@ -1,7 +1,7 @@
 CREATE TABLE Biome_Location (
 Biome_name 		CHAR(13),
-Latitude		FLOAT(8,6),
-Longitude		FLOAT(8,6),
+Latitude		FLOAT(7),
+Longitude		FLOAT(7),
 PRIMARY KEY (Biome_name, latitude, longitude),
 FOREIGN KEY (Biome_name)
   REFERENCES Biome(name)
