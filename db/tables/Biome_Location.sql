@@ -1,4 +1,4 @@
-CREATE TABLE Biome-Location (
+CREATE TABLE Biome_Location (
 Biome_name 		CHAR(13),
 Latitude		FLOAT(8,6),
 Longitude		FLOAT(8,6),
