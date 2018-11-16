@@ -1,8 +1,8 @@
 CREATE TABLE LevelThreshold (
 Species_name 	CHAR(10),
-level 			INTEGER,
+pokelevel		INTEGER,
 exp 			INTEGER,
-PRIMARY KEY (Species_name, level),
+PRIMARY KEY (Species_name, pokelevel),
 FOREIGN KEY (Species_name)
   REFERENCES Species(name)
   ON DELETE CASCADE);
