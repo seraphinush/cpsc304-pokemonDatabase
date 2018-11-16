@@ -4,7 +4,7 @@ body {
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url("http://littleone.me/wp-content/uploads/tittle-with-pokeball-wallpaper-5af1ca585a1d1.jpg");
+    background-image: url("./bgi.jpg");
 }
 
 #container {
@@ -25,7 +25,7 @@ p {
     align-items: center;
     justify-content: center;
     align-self: stretch;
-    background-color: #ffffffff;
+    background-color: #ffffffdd;
     text-align: center;
     margin-bottom: 5px;
 }
@@ -55,16 +55,20 @@ p {
     margin-right: 5px;
 }
 
-.nav_item {
+.nav-item {
     display: block;
     text-align: center;
-    background-color: #Ffcb3dff;
+    background-color: #ffffffff;
     margin: 15px 5px 15px 5px;
     padding: 10px 5px 10px 5px;
 }
 
-.nav_item:hover {
-    background-color: #Ffcb3d99;
+.nav-item:hover {
+    background-color: #ffffff88;
+}
+
+.nav-item:active {
+    color: #ffffffff;
 }
 
 #content {

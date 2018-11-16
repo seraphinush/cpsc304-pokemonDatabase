@@ -1,0 +1,11 @@
+#pokedex-left {
+    width: 200px;
+    float: left;
+    text-align: center;
+}
+
+#pokedex-right {
+    width: auto;
+    float: right;
+    text-align: left;
+}
