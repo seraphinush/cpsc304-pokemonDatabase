@@ -1,11 +1,18 @@
 #pokedex-left {
-    width: 200px;
+    min-width: 100px;
+    max-width: 200px;
+    height: inherit;
     float: left;
     text-align: center;
+    border-right: 1px solid black;
+    overflow: auto;
+    margin-left: 15px;
 }
 
 #pokedex-right {
-    width: auto;
+    min-width: 50%;
     float: right;
     text-align: left;
+    border-left: 1px solid black;
+    overflow: auto;
 }

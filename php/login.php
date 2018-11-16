@@ -56,20 +56,19 @@ function executeBoundSQL($cmdstr, $list) {
 }
 
 function printResult($result) { //prints results from a select statement
-	echo "<br>Got data from table tab1:<br>";
-	echo "<table>";
-	echo "<tr><th>ID</th><th>Name</th><th>Age</th></tr>";
-
-	while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
-		echo "<tr><td>" . $row["NID"] . "</td><td>" . $row["NAME"] . "</td><td>" . $row["AGE"] . "</td></tr>"; //or just use "echo $row[0]" 
-	}
-	echo "</table>";
+	echo "<p>Got data from table tab1:<p>";
 
 }
 
 // Connect Oracle...
 if ($db_conn) {
 
+    if (array_key_exists('login', $_POST)) {
+        $myUsername = $_POST['accUsername'];
+        $myPassword = $_POST['accPassword'];
+        $result = executePlainSQL("SELECT id, name FROM trainer WHERE name = $myUsername AND password = $myPassword")
+        $row = OCI_Fetch_Array($result);
+    }
 	if (array_key_exists('reset', $_POST)) {
 		// Drop old table...
 		echo "<br> dropping table <br>";
@@ -90,7 +89,8 @@ if ($db_conn) {
 			);
 			$alltuples = array (
 				$tuple
-			);
+            );
+            $myId = $_POST['id'];
 			executeBoundSQL("insert into tab1 values (:bind1, :bind2, :bind3)", $alltuples);
 			OCICommit($db_conn);
 
@@ -116,7 +116,8 @@ if ($db_conn) {
 			);
 			$alltuples = array (
 				$tuple
-			);
+            );
+            
 			executeBoundSQL("UPDATE tab1 SET age=:bind2 WHERE name=:bind1", $alltuples);
 			OCICommit($db_conn);
 		// ---- ---- ---- ---- ---- ---- ---- ----

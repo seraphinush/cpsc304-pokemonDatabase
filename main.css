@@ -106,3 +106,7 @@ p {
 #content .pokedex {
     display: none;
 }
+
+#pokedex-container {
+    margin: 5px;
+}

@@ -66,27 +66,19 @@
                 <p>Welcome trainer.</p>
             </div>
             <div class="myaccount"> 
-                <form method="POST" action="login.php"> <!-- LOGIN -->
+                <form method="POST" action="./php/login.php"> <!-- LOGIN -->
                     <font>USERNAME</font>
-                    <input type="text" name="accName" size="10">
+                    <input type="text" name="accUsername" size="10">
                     <br />
                     <font>PASSWORD</font>
                     <input type="text" name="accPassword" size="10">
-                    <input type="submit" value="Login" name="login">
+                    <br /><br />
+                    <input type="submit" value="Login" name="login">&nbsp;&nbsp; &nbsp; &nbsp; 
+                    <input type="submit" value="Sign up" name="signup">
                 </form>
                 <?php include './login.php';?>
                 <br />
-                <p></p>
-                <br />
-                <form method="POST" action="signup.php"> <!-- SIGNUP -->
-                    <font>USERNAME</font>
-                    <input type="text" name="accName" size="10">
-                    <br />
-                    <font>PASSWORD</font>
-                    <input type="text" name="accPassword" size="10">
-                    <input type="submit" value="Sign up" name="insertuser">
-                </form>
-                <?php include './signup.php';?>
+                <p id="loginresult"></p>
             </div>
             <div class="mypokemon">
                 <p>MYPOKEMON STUB</p>
