@@ -44,4 +44,4 @@ function executeBoundSQL($cmdstr, $list) {
 		}
 	}
 }
->
+?>
