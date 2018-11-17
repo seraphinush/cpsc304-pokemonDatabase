@@ -46,16 +46,16 @@
             <div class="user_container">
                 <div>test</div>
             </div>
-            <div onclick="location.href='./myaccount.php'" class="nav-item">
+            <div onclick="location.href='./php/myaccount.php'" class="nav-item">
                 <p>MY ACCOUNT</p>
             </div>
-            <div onclick="location.href='./mypokemon.php'" class="nav-item">
+            <div onclick="location.href='./php/mypokemon.php'" class="nav-item">
                 <p>MY POKEMON</p>
             </div>
-            <div onclick="location.href='./storage.php'" class="nav-item">
+            <div onclick="location.href='./php/storage.php'" class="nav-item">
                 <p>STORAGE</p>
             </div>
-            <div onclick="location.href='./pokedex.php'" class="nav-item">
+            <div onclick="location.href='./php/pokedex.php'" class="nav-item">
                 <p>POKEDEX</p>
             </div>
         </div>
@@ -65,39 +65,7 @@
             <div class="welcome">
                 <p>Welcome trainer.</p>
             </div>
-            <div class="myaccount">
-                <form method="POST" target="_self"> <!-- LOGIN -->
-                    <span>USERNAME</span>
-                    <input type="text" name="accUsername" size="10">
-                    <br />
-                    <span>PASSWORD</span>
-                    <input type="text" name="accPassword" size="10">
-                    <br /><br />
-                    <input type="submit" value="Login" name="login">&nbsp;&nbsp; &nbsp; &nbsp;
-                    <input type="submit" value="Sign up" name="signup">
-                </form>
-
-                <br />
-                <p id="loginresult"></p>
-            </div>
-            <div class="mypokemon">
-                <p>MYPOKEMON STUB</p>
-            </div>
-            <div class="storage">
-                <p>STORAGE STUB</p>
-            </div>
-            <div class="pokedex">
-                <div id="pokedex-container">
-                    <div id="pokedex-left">
-                        test
-                    </div>
-                    <div id="pokedex-right">
-                        test
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        </div> 
     </div>
 
 

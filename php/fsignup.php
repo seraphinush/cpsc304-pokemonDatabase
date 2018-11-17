@@ -61,7 +61,7 @@ function executePlainSQL($cmdstr)
 }
 
 if ($db_conn) {
-    if (array_change_key_exists('login', $_POST)) {
+    if (array_key_exists('login', $_POST)) {
         $tuple = array(
             ":bind1" => $_POST['accUsername'],
             ":bind2" => $_POST['accPassword']
@@ -69,10 +69,14 @@ if ($db_conn) {
         $alltuples = array(
             $tuple,
         );
-        executePlainSQL("SELECT id FROM Trainer WHERE :bind3, :bind1, :bind2", $alltuples);
+        $result = executePlainSQL("SELECT id FROM Trainer WHERE name = ':bind1' AND password = ':bind2'");
         OCICommit($db_conn);
-    }
-    else if (array_key_exists('signup', $_POST)) {
+        if ($result && $success) {
+            echo "HOORAY";
+        } else {
+            echo "KMS";
+        }
+    } else if (array_key_exists('signup', $_POST)) {
         //Getting the values from user and insert data into the table
         $maxId = executePlainSQL("SELECT MAX(id) FROM Trainer");
         
@@ -100,6 +104,12 @@ if ($db_conn) {
         executeBoundSQL("insert into Trainer values (:bind1, :bind2, :bind3)", $alltuples);
         OCICommit($db_conn);
     }
+    OCILogoff($db_conn);
+
+} else {
+	echo "cannot connect";
+	$e = OCI_Error(); // For OCILogon errors pass no handle
+	echo htmlentities($e['message']);
 }
 
 ?>

@@ -105,7 +105,7 @@ p {
 }
 
 #content .pokedex {
-    display: none;
+    display: inherit;
 }
 
 #hidden iframe {

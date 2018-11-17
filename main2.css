@@ -112,8 +112,8 @@ p {
     width: 80%;
     height: 80%;
     position: absolute;
-    top: 10%;
-    left: 10%;
+    top: 0px;
+    left: 0px;
     float: left;
     overflow: hidden;
     z-index: -10;
