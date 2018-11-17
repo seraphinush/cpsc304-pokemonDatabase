@@ -1,186 +1,44 @@
- 
-  INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Bug', 'taiga');
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Bug', 'tropical rain forest');
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Bug', 'tempreate rain forest');
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Dragon', 'mountain');
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Dragon', 'tundra');
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Ice', 'tundra');
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Ice', 'arctic');
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Fighting', 'desert');
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Fire', 'desert');
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Fire', 'taiga');
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Flying', 'mountain');
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  (
-    'Flying', 'temperate rain forest'
-  );
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Flying', 'swamp');
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Flying', 'oceanic');
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Grass', 'grassland');
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Grass', 'taiga');
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Ghost', 'tundra');
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Ghost', 'arctic');
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Ground', 'desert');
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Ground', 'grassland');
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Ground', 'mountain');
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Electric', 'mountain');
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  (
-    'Electric ', 'tropical rain forest'
-  );
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Normal', 'tundra');
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  (
-    'Normal', 'temprerate rain forest'
-  );
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Normal', 'grassland');
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Normal', 'desert');
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Normal', 'oceanic');
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  (
-    'Poison', 'tropical rain forest'
-  );
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Poison', 'swamp');
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Poison', 'mountain');
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Psychic', 'desert');
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Psychic', 'swamp');
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Rock', 'mountain');
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Rock', 'grassland');
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Rock', 'desert');
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Water', 'oceanic');
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Water', 'swamp');
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Steel', 'mountain');
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Steel', 'tundra');
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Steel', 'taiga');
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  (
-    'Fairy', 'temperate rain forest'
-  );
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Fairy', 'taiga');
-/* INSERT QUERY */
-INSERT INTO TABLE_NAME(Type_Biome) 
-VALUES 
-  ('Fairy', 'mountain');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Taiga','Bug');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Tropical Rain Forest','Bug');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Tempreate Rain Forest','Bug');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Mountain','Dragon');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Tundra','Dragon');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Tundra','Ice');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Arctic','Ice');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Desert','Fighting');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Desert','Fire');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Taiga','Fire');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Mountain','Flying');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Temperate Rain Forest','Flying');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Swamp','Flying');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Oceanic','Flying');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Grassland','Grass');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Taiga','Grass');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Tundra','Ghost');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Arctic','Ghost');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Desert','Ground');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Grassland','Ground');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Mountain','Ground');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Mountain','Electric');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Tropical Rain Forest','Electric');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Tundra','Normal');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Temprerate Rain Forest','Normal');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Grassland','Normal');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Desert','Normal');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Oceanic','Normal');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Tropical Rain Forest','Poison');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Swamp','Poison');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Mountain','Poison');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Desert','Psychic');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Swamp','Psychic');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Mountain','Rock');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Grassland','Rock');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Desert','Rock');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Oceanic','Water');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Swamp','Water');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Mountain','Steel');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Tundra','Steel');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Taiga','Steel');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Temperate Rain Forest','Fairy');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Taiga','Fairy');
+INSERT INTO Type_Biome(Biome_name,Type_name) VALUES ('Mountain','Fairy');

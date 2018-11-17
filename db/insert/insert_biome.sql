@@ -1,0 +1,12 @@
+INSERT INTO Biome(name) VALUES ('Arctic');
+INSERT INTO Biome(name) VALUES ('Desert');
+INSERT INTO Biome(name) VALUES ('Grassland');
+INSERT INTO Biome(name) VALUES ('Mountain');
+INSERT INTO Biome(name) VALUES ('Oceanic');
+INSERT INTO Biome(name) VALUES ('Swamp');
+INSERT INTO Biome(name) VALUES ('Taiga');
+INSERT INTO Biome(name) VALUES ('Temperate Rain Forest');
+INSERT INTO Biome(name) VALUES ('Tempreate Rain Forest');
+INSERT INTO Biome(name) VALUES ('Temprerate Rain Forest');
+INSERT INTO Biome(name) VALUES ('Tropical Rain Forest');
+INSERT INTO Biome(name) VALUES ('Tundra');
