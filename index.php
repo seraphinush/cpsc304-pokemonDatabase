@@ -153,6 +153,5 @@ if ($db_conn) {
 			//executeBoundSQL("insert into Trainer values (:bind1, :bind2)", $alltuples);
 			//OCICommit($db_conn);
 	}
-	echo "test"
 }
 ?>
