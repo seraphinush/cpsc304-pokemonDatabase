@@ -61,7 +61,18 @@ function executePlainSQL($cmdstr)
 }
 
 if ($db_conn) {
-    if (array_key_exists('signup', $_POST)) {
+    if (array_change_key_exists('login', $_POST)) {
+        $tuple = array(
+            ":bind1" => $_POST['accUsername'],
+            ":bind2" => $_POST['accPassword']
+        );
+        $alltuples = array(
+            $tuple,
+        );
+        executePlainSQL("SELECT id FROM Trainer WHERE :bind3, :bind1, :bind2", $alltuples);
+        OCICommit($db_conn);
+    }
+    else if (array_key_exists('signup', $_POST)) {
         //Getting the values from user and insert data into the table
         $maxId = executePlainSQL("SELECT MAX(id) FROM Trainer");
         
@@ -79,14 +90,14 @@ if ($db_conn) {
         }
         echo "post : " . $maxId;
         $tuple = array(
-            ":bind1" => $_POST['accUsername'],
-            ":bind2" => $_POST['accPassword'],
-            ":bind3" => $maxId,
+            ":bind1" => $maxId,
+            ":bind2" => $_POST['accUsername'],
+            ":bind3" => $_POST['accPassword'],
         );
         $alltuples = array(
             $tuple,
         );
-        executeBoundSQL("insert into Trainer values (:bind3, :bind1, :bind2)", $alltuples);
+        executeBoundSQL("insert into Trainer values (:bind1, :bind2, :bind3)", $alltuples);
         OCICommit($db_conn);
     }
 }

@@ -37,7 +37,7 @@
     <div id="container">
 
         <!-- HEADER -->
-        <div id="header">
+        <div onclick="location.href='./index.php'" id="header">
             <p>CPSC304-G13's PC</p>
         </div>
 
@@ -46,16 +46,16 @@
             <div class="user_container">
                 <div>test</div>
             </div>
-            <div onclick="showMyAccount('myaccount')" class="nav-item">
+            <div onclick="location.href='./myaccount.php'" class="nav-item">
                 <p>MY ACCOUNT</p>
             </div>
-            <div onclick="showMyAccount('mypokemon')" class="nav-item">
+            <div onclick="location.href='./mypokemon.php'" class="nav-item">
                 <p>MY POKEMON</p>
             </div>
-            <div onclick="showMyAccount('storage')" class="nav-item">
+            <div onclick="location.href='./storage.php'" class="nav-item">
                 <p>STORAGE</p>
             </div>
-            <div onclick="showMyAccount('pokedex')" class="nav-item">
+            <div onclick="location.href='./pokedex.php'" class="nav-item">
                 <p>POKEDEX</p>
             </div>
         </div>

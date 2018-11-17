@@ -89,7 +89,7 @@ p {
 }
 
 #content .myaccount {
-    display: inherit;
+    display: none;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
@@ -97,11 +97,11 @@ p {
 }
 
 #content .mypokemon {
-    display: inherit;
+    display: none;
 }
 
 #content .storage {
-    display: inherit;
+    display: none;
 }
 
 #content .pokedex {
