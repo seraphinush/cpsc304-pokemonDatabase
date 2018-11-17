@@ -1,0 +1,401 @@
+Latitude,Longitude,Biome_name
+0,0,Temprerate Rain Forest
+0,1,Tundra
+0,2,Mountain
+0,3,Oceanic
+0,4,Desert
+0,5,Swamp
+0,6,Arctic
+0,7,Temperate Rain Forest
+0,8,Oceanic
+0,9,Desert
+0,10,Taiga
+0,11,Grassland
+0,12,Swamp
+0,13,Temprerate Rain Forest
+0,14,Taiga
+0,15,Tundra
+0,16,Grassland
+0,17,Tropical Rain Forest
+0,18,Tropical Rain Forest
+0,19,Temperate Rain Forest
+1,0,Temprerate Rain Forest
+1,1,Temperate Rain Forest
+1,2,Mountain
+1,3,Temperate Rain Forest
+1,4,Tropical Rain Forest
+1,5,Swamp
+1,6,Tempreate Rain Forest
+1,7,Taiga
+1,8,Mountain
+1,9,Temprerate Rain Forest
+1,10,Swamp
+1,11,Desert
+1,12,Arctic
+1,13,Arctic
+1,14,Temprerate Rain Forest
+1,15,Temperate Rain Forest
+1,16,Swamp
+1,17,Tempreate Rain Forest
+1,18,Temprerate Rain Forest
+1,19,Tempreate Rain Forest
+2,0,Arctic
+2,1,Taiga
+2,2,Oceanic
+2,3,Arctic
+2,4,Tundra
+2,5,Desert
+2,6,Taiga
+2,7,Taiga
+2,8,Grassland
+2,9,Temperate Rain Forest
+2,10,Taiga
+2,11,Temperate Rain Forest
+2,12,Mountain
+2,13,Temprerate Rain Forest
+2,14,Desert
+2,15,Oceanic
+2,16,Desert
+2,17,Mountain
+2,18,Desert
+2,19,Desert
+3,0,Temperate Rain Forest
+3,1,Taiga
+3,2,Mountain
+3,3,Taiga
+3,4,Tundra
+3,5,Arctic
+3,6,Temperate Rain Forest
+3,7,Arctic
+3,8,Desert
+3,9,Oceanic
+3,10,Tundra
+3,11,Swamp
+3,12,Oceanic
+3,13,Taiga
+3,14,Swamp
+3,15,Swamp
+3,16,Swamp
+3,17,Desert
+3,18,Mountain
+3,19,Desert
+4,0,Temperate Rain Forest
+4,1,Oceanic
+4,2,Temprerate Rain Forest
+4,3,Taiga
+4,4,Oceanic
+4,5,Temperate Rain Forest
+4,6,Desert
+4,7,Mountain
+4,8,Tempreate Rain Forest
+4,9,Tundra
+4,10,Swamp
+4,11,Taiga
+4,12,Arctic
+4,13,Tropical Rain Forest
+4,14,Taiga
+4,15,Tempreate Rain Forest
+4,16,Swamp
+4,17,Temprerate Rain Forest
+4,18,Arctic
+4,19,Swamp
+5,0,Desert
+5,1,Temprerate Rain Forest
+5,2,Tempreate Rain Forest
+5,3,Tundra
+5,4,Tempreate Rain Forest
+5,5,Tundra
+5,6,Grassland
+5,7,Desert
+5,8,Arctic
+5,9,Temprerate Rain Forest
+5,10,Oceanic
+5,11,Taiga
+5,12,Grassland
+5,13,Temprerate Rain Forest
+5,14,Tempreate Rain Forest
+5,15,Swamp
+5,16,Tropical Rain Forest
+5,17,Tundra
+5,18,Temperate Rain Forest
+5,19,Tempreate Rain Forest
+6,0,Tundra
+6,1,Grassland
+6,2,Taiga
+6,3,Tundra
+6,4,Tropical Rain Forest
+6,5,Oceanic
+6,6,Taiga
+6,7,Mountain
+6,8,Temprerate Rain Forest
+6,9,Tempreate Rain Forest
+6,10,Temprerate Rain Forest
+6,11,Swamp
+6,12,Tempreate Rain Forest
+6,13,Grassland
+6,14,Oceanic
+6,15,Swamp
+6,16,Tundra
+6,17,Mountain
+6,18,Taiga
+6,19,Swamp
+7,0,Oceanic
+7,1,Temprerate Rain Forest
+7,2,Desert
+7,3,Desert
+7,4,Oceanic
+7,5,Tropical Rain Forest
+7,6,Taiga
+7,7,Oceanic
+7,8,Mountain
+7,9,Temperate Rain Forest
+7,10,Arctic
+7,11,Taiga
+7,12,Temprerate Rain Forest
+7,13,Arctic
+7,14,Tempreate Rain Forest
+7,15,Oceanic
+7,16,Mountain
+7,17,Grassland
+7,18,Taiga
+7,19,Tundra
+8,0,Tundra
+8,1,Tropical Rain Forest
+8,2,Grassland
+8,3,Taiga
+8,4,Temperate Rain Forest
+8,5,Arctic
+8,6,Oceanic
+8,7,Taiga
+8,8,Taiga
+8,9,Tempreate Rain Forest
+8,10,Taiga
+8,11,Arctic
+8,12,Grassland
+8,13,Desert
+8,14,Tundra
+8,15,Tempreate Rain Forest
+8,16,Tempreate Rain Forest
+8,17,Tempreate Rain Forest
+8,18,Swamp
+8,19,Temprerate Rain Forest
+9,0,Oceanic
+9,1,Desert
+9,2,Grassland
+9,3,Grassland
+9,4,Mountain
+9,5,Arctic
+9,6,Arctic
+9,7,Temprerate Rain Forest
+9,8,Tropical Rain Forest
+9,9,Grassland
+9,10,Desert
+9,11,Grassland
+9,12,Tundra
+9,13,Temprerate Rain Forest
+9,14,Temprerate Rain Forest
+9,15,Tempreate Rain Forest
+9,16,Temperate Rain Forest
+9,17,Oceanic
+9,18,Mountain
+9,19,Temprerate Rain Forest
+10,0,Grassland
+10,1,Tundra
+10,2,Oceanic
+10,3,Oceanic
+10,4,Temprerate Rain Forest
+10,5,Grassland
+10,6,Tropical Rain Forest
+10,7,Temprerate Rain Forest
+10,8,Oceanic
+10,9,Tundra
+10,10,Tundra
+10,11,Tundra
+10,12,Temprerate Rain Forest
+10,13,Swamp
+10,14,Tundra
+10,15,Oceanic
+10,16,Mountain
+10,17,Grassland
+10,18,Tropical Rain Forest
+10,19,Arctic
+11,0,Temprerate Rain Forest
+11,1,Desert
+11,2,Tundra
+11,3,Mountain
+11,4,Desert
+11,5,Mountain
+11,6,Grassland
+11,7,Arctic
+11,8,Grassland
+11,9,Mountain
+11,10,Taiga
+11,11,Arctic
+11,12,Swamp
+11,13,Temperate Rain Forest
+11,14,Temprerate Rain Forest
+11,15,Grassland
+11,16,Tropical Rain Forest
+11,17,Oceanic
+11,18,Temprerate Rain Forest
+11,19,Grassland
+12,0,Temperate Rain Forest
+12,1,Swamp
+12,2,Oceanic
+12,3,Grassland
+12,4,Swamp
+12,5,Mountain
+12,6,Desert
+12,7,Arctic
+12,8,Taiga
+12,9,Mountain
+12,10,Tempreate Rain Forest
+12,11,Temperate Rain Forest
+12,12,Taiga
+12,13,Grassland
+12,14,Temprerate Rain Forest
+12,15,Desert
+12,16,Oceanic
+12,17,Arctic
+12,18,Swamp
+12,19,Desert
+13,0,Tropical Rain Forest
+13,1,Taiga
+13,2,Taiga
+13,3,Oceanic
+13,4,Temperate Rain Forest
+13,5,Temperate Rain Forest
+13,6,Mountain
+13,7,Tropical Rain Forest
+13,8,Tundra
+13,9,Oceanic
+13,10,Tundra
+13,11,Tundra
+13,12,Temprerate Rain Forest
+13,13,Swamp
+13,14,Mountain
+13,15,Desert
+13,16,Arctic
+13,17,Desert
+13,18,Oceanic
+13,19,Temperate Rain Forest
+14,0,Grassland
+14,1,Mountain
+14,2,Tropical Rain Forest
+14,3,Tropical Rain Forest
+14,4,Tropical Rain Forest
+14,5,Arctic
+14,6,Tropical Rain Forest
+14,7,Tundra
+14,8,Arctic
+14,9,Tundra
+14,10,Grassland
+14,11,Arctic
+14,12,Mountain
+14,13,Grassland
+14,14,Desert
+14,15,Temprerate Rain Forest
+14,16,Tropical Rain Forest
+14,17,Mountain
+14,18,Tundra
+14,19,Mountain
+15,0,Desert
+15,1,Temperate Rain Forest
+15,2,Taiga
+15,3,Temperate Rain Forest
+15,4,Grassland
+15,5,Mountain
+15,6,Temprerate Rain Forest
+15,7,Desert
+15,8,Swamp
+15,9,Arctic
+15,10,Tropical Rain Forest
+15,11,Temperate Rain Forest
+15,12,Taiga
+15,13,Tempreate Rain Forest
+15,14,Tundra
+15,15,Tundra
+15,16,Tempreate Rain Forest
+15,17,Tropical Rain Forest
+15,18,Arctic
+15,19,Temprerate Rain Forest
+16,0,Oceanic
+16,1,Grassland
+16,2,Desert
+16,3,Tundra
+16,4,Arctic
+16,5,Desert
+16,6,Taiga
+16,7,Grassland
+16,8,Swamp
+16,9,Tempreate Rain Forest
+16,10,Oceanic
+16,11,Tundra
+16,12,Oceanic
+16,13,Grassland
+16,14,Tropical Rain Forest
+16,15,Arctic
+16,16,Taiga
+16,17,Mountain
+16,18,Taiga
+16,19,Temperate Rain Forest
+17,0,Oceanic
+17,1,Taiga
+17,2,Desert
+17,3,Temperate Rain Forest
+17,4,Temperate Rain Forest
+17,5,Tundra
+17,6,Grassland
+17,7,Tempreate Rain Forest
+17,8,Grassland
+17,9,Arctic
+17,10,Swamp
+17,11,Grassland
+17,12,Oceanic
+17,13,Swamp
+17,14,Arctic
+17,15,Desert
+17,16,Taiga
+17,17,Oceanic
+17,18,Mountain
+17,19,Tropical Rain Forest
+18,0,Arctic
+18,1,Arctic
+18,2,Tempreate Rain Forest
+18,3,Temprerate Rain Forest
+18,4,Tempreate Rain Forest
+18,5,Desert
+18,6,Temperate Rain Forest
+18,7,Taiga
+18,8,Swamp
+18,9,Swamp
+18,10,Mountain
+18,11,Grassland
+18,12,Temprerate Rain Forest
+18,13,Temperate Rain Forest
+18,14,Tempreate Rain Forest
+18,15,Oceanic
+18,16,Swamp
+18,17,Taiga
+18,18,Tropical Rain Forest
+18,19,Mountain
+19,0,Arctic
+19,1,Tundra
+19,2,Desert
+19,3,Desert
+19,4,Oceanic
+19,5,Tempreate Rain Forest
+19,6,Grassland
+19,7,Taiga
+19,8,Taiga
+19,9,Tempreate Rain Forest
+19,10,Tropical Rain Forest
+19,11,Oceanic
+19,12,Grassland
+19,13,Grassland
+19,14,Grassland
+19,15,Mountain
+19,16,Tempreate Rain Forest
+19,17,Tundra
+19,18,Tempreate Rain Forest
+19,19,Arctic
