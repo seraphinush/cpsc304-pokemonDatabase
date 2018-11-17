@@ -108,9 +108,13 @@ p {
     display: none;
 }
 
-#hidden {
+#hidden iframe {
+    width: 80%;
+    height: 80%;
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: 10%;
+    left: 10%;
     float: left;
+    overflow: hidden;
+    z-index: -10;
 }
