@@ -62,8 +62,15 @@
 
         <!-- CONTENT -->
         <div id="content">
-            <div class="welcome">
-                <p>Welcome trainer.</p>
+            <div class="pokedex">
+                <div id="pokedex-container">
+                    <div id="pokedex-left">
+                        test
+                    </div>
+                    <div id="pokedex-right">
+                        test   
+                    </div>
+                </div>
             </div>
         </div>
 

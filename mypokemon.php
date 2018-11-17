@@ -62,8 +62,8 @@
 
         <!-- CONTENT -->
         <div id="content">
-            <div class="welcome">
-                <p>Welcome trainer.</p>
+            <div class="mypokemon">
+                <p>MYPOKEMON STUB</p>
             </div>
         </div>
 

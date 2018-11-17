@@ -62,8 +62,20 @@
 
         <!-- CONTENT -->
         <div id="content">
-            <div class="welcome">
-                <p>Welcome trainer.</p>
+            <div class="myaccount"> 
+                <form method="POST" target="_self"> <!-- LOGIN -->
+                    <font>USERNAME</font>
+                    <input type="text" name="accUsername" size="10">
+                    <br />
+                    <font>PASSWORD</font>
+                    <input type="text" name="accPassword" size="10">
+                    <br /><br />
+                    <input type="submit" value="Login" name="login">&nbsp;&nbsp; &nbsp; &nbsp; 
+                    <input type="submit" value="Sign up" name="signup">
+                </form>
+                
+                <br />
+                <p id="loginresult"></p>
             </div>
         </div>
 
