@@ -11,6 +11,15 @@ body {
     display: grid;
     vertical-align: middle;
     margin: 0;
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    display: grid;
+    grid-template-columns: 150px auto;
+    grid-template-rows: 100px auto;
 }
 
 p {
@@ -33,18 +42,6 @@ p {
 #header p {
     font-size: 40px;
     font-size: 3.5vw;
-}
-
-#container {
-    width: 80%;
-    height: 80%;
-    margin: auto;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    display: grid;
-    grid-template-columns: 150px auto;
-    grid-template-rows: 100px auto;
 }
 
 #nav {
@@ -87,6 +84,10 @@ p {
     text-align: center;
 }
 
+#content {
+    padding: 5px;
+}
+
 #content .myaccount {
     display: none;
     position: relative;
@@ -105,8 +106,4 @@ p {
 
 #content .pokedex {
     display: none;
-}
-
-#pokedex-container {
-    margin: 5px;
 }

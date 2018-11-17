@@ -7,7 +7,7 @@ if ($db_conn) {
 	if (array_key_exists('insertuser', $_POST)) {
 		//Getting the values from user and insert data into the table
 			$tuple = array (
-				":bind1" => $_POST['accName'],
+				":bind1" => $_POST['accUsername'],
 				":bind2" => $_POST['accPassword'],
 			);
 			$alltuples = array (

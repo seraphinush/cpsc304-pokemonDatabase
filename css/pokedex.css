@@ -5,8 +5,13 @@
     float: left;
     text-align: center;
     border-right: 1px solid black;
-    overflow: auto;
+    overflow: hidden;
+    overflow-y: scroll;
     margin-left: 15px;
+}
+
+#pokedex-left::-webkit-scrollbar { 
+    display: none;
 }
 
 #pokedex-right {
@@ -15,4 +20,8 @@
     text-align: left;
     border-left: 1px solid black;
     overflow: auto;
+}
+
+#pokedex-right::-webkit-scrollbar { 
+    display: none;
 }
