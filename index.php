@@ -1,3 +1,11 @@
+<?php 
+/*try {
+$start = session_start(); 
+} catch (Exception $e) {
+                                echo htmlentities($e['message']);
+                            }
+echo $start . session_id() . session_status();*/
+?>
 <html>
 
 <head>
@@ -51,5 +59,4 @@
 </body>
 
 </html>
-<php? session_start(); ?>
 
