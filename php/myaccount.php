@@ -81,7 +81,7 @@
 
 <?php
 $success = true; // error flag
-$db_conn = OCILogon("ora_v9m8", "a38134110", "dbhost.ugrad.cs.ubc.ca:1522/ug");
+$db_conn = OCILogon("ora_l8o0b", "a33250151", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 
 function executeBoundSQL($cmdstr, $list)
 {
@@ -130,24 +130,17 @@ function executePlainSQL($cmdstr)
 if ($db_conn) {
     // ---- login ----
     if (array_key_exists('login', $_POST)) {
-        $tuple = array(
-            ":bind1" => $_POST['accUsername'],
-            ":bind2" => $_POST['accPassword'],
-        );
-        $alltuples = array(
-            $tuple,
-        );
+	$user = $_POST['accUsername'];
+        $pass = $_POST['accPassword'];
         $result;
         try {
-            $result = executePlainSQL("SELECT id, name, password FROM Trainer WHERE name = ':bind1' AND password = ':bind2'");
-            echo "test : ".$result."<br/>";
-            $result = OCI_Fetch_Array($result, OCI_ASSOC);
-            echo "test : ".$result."<br/>";
-            echo "test : ".$result["id"]."<br/>";
-            echo "test : ".$result["ID"]."<br/>";
-            $result = $result[0];
-            echo "test : ".$result."<br/>";
+            $result = executePlainSQL("SELECT id, name, password FROM Trainer WHERE name = '" . $user . "' AND password = '" . $pass . "'");
             OCICommit($db_conn);
+            while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {;
+            echo "test : " . $row["ID"] . "<br/>";
+            echo "test : " . $row["NAME"] . "<br/>";
+            echo "test : " . $row["PASSWORD"] . "<br/>";
+}
             if ($result && $success) {
                 echo "HOORAY";
             } else {
