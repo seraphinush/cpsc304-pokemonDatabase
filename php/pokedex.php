@@ -2,32 +2,10 @@
 
 <head>
 
-    <link rel="stylesheet" type="text/css" href="main.css">
-    <link rel="stylesheet" type="text/css" href="./css/pokedex.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    <link rel="stylesheet" type="text/css" href="../css/pokedex.css">
 
     <script>
-        function showMyAccount(navName) {
-            var div = document.getElementsByClassName(navName)[0];
-            if (div.style.display == "inherit") {
-                return;
-            } else {
-                let navNames = [
-                    "welcome",
-                    "myaccount",
-                    "mypokemon",
-                    "storage",
-                    "pokedex"
-                ];
-                for (let i = 0, n = navNames.length; i < n; i++) {
-                    let div = document.getElementsByClassName(navNames[i])[0];
-                    if (navNames[i] == navName) {
-                        div.style.display = "inherit";
-                    } else {
-                        div.style.display = "none";
-                    }
-                }
-            }
-        }
     </script>
 
 </head>
@@ -37,7 +15,7 @@
     <div id="container">
 
         <!-- HEADER -->
-        <div onclick="location.href='./index.php'" id="header">
+        <div onclick="location.href='../index.php'" id="header">
             <p>CPSC304-G13's PC</p>
         </div>
 

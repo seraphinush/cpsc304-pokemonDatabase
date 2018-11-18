@@ -2,33 +2,10 @@
 
 <head>
 
-    <link rel="stylesheet" type="text/css" href="main.css">
-    <link rel="stylesheet" type="text/css" href="./css/pokedex.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    <link rel="stylesheet" type="text/css" href="../css/pokedex.css">
 
     <script>
-        function showMyAccount(navName) {
-            var div = document.getElementsByClassName(navName)[0];
-            if (div.style.display == "inherit") {
-                return;
-            } else {
-                let navNames = [
-                    "welcome",
-                    "myaccount",
-                    "mypokemon",
-                    "storage",
-                    "pokedex"
-                ];
-                for (let i = 0, n = navNames.length; i < n; i++) {
-                    let div = document.getElementsByClassName(navNames[i])[0];
-                    if (navNames[i] == navName) {
-                        div.style.display = "inherit";
-                    } else {
-                        div.style.display = "none";
-                    }
-                }
-            }
-        }
-
         function validateAccForm() {
             let myName = document.forms["accForm"]["accUsername"].value;
             let myPass = document.forms["accForm"]["accPassword"].value;

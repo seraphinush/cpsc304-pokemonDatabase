@@ -2,32 +2,10 @@
 
 <head>
 
-    <link rel="stylesheet" type="text/css" href="main.css">
-    <link rel="stylesheet" type="text/css" href="./css/pokedex.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    <link rel="stylesheet" type="text/css" href="../css/pokedex.css">
 
     <script>
-        function showMyAccount(navName) {
-            var div = document.getElementsByClassName(navName)[0];
-            if (div.style.display == "inherit") {
-                return;
-            } else {
-                let navNames = [
-                    "welcome",
-                    "myaccount",
-                    "mypokemon",
-                    "storage",
-                    "pokedex"
-                ];
-                for (let i = 0, n = navNames.length; i < n; i++) {
-                    let div = document.getElementsByClassName(navNames[i])[0];
-                    if (navNames[i] == navName) {
-                        div.style.display = "inherit";
-                    } else {
-                        div.style.display = "none";
-                    }
-                }
-            }
-        }
     </script>
 
 </head>
@@ -37,7 +15,7 @@
     <div id="container">
 
         <!-- HEADER -->
-        <div onclick="location.href='./index.php'" id="header">
+        <div onclick="location.href='../index.php'" id="header">
             <p>CPSC304-G13's PC</p>
         </div>
 
@@ -76,8 +54,8 @@
 </html>
 
 <?php
-$success = True; //keep track of errors so it redirects the page only if there are no errors
-$db_conn = OCILogon("ora_l8o0b", "a33250151", "dbhost.ugrad.cs.ubc.ca:1522/ug");
+$success = true; // error flag
+$db_conn = OCILogon("ora_v9m8", "a38134110", "dbhost.ugrad.cs.ubc.ca:1522/ug");
 
 function executeBoundSQL($cmdstr, $list) {
 
