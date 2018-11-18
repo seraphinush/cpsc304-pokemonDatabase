@@ -28,6 +28,20 @@
                 }
             }
         }
+
+        function validateAccForm() {
+            let myName = document.forms["accForm"]["accUsername"].value;
+            let myPass = document.forms["accForm"]["accPassword"].value;
+            if (myName === "" || myPass === "") {
+                alert("Fields cannot be empty.");
+                return false;
+            } else if (myPassword.length < 5) {
+                alert("Passwords must be longer than 4 characters.");
+                return false;
+            } else {
+                return true;
+            }
+        }
     </script>
 
 </head>
@@ -37,7 +51,7 @@
     <div id="container">
 
         <!-- HEADER -->
-        <div onclick="location.href='./index.php'" id="header">
+        <div onclick="location.href='../index.php'" id="header">
             <p>CPSC304-G13's PC</p>
         </div>
 
@@ -63,7 +77,7 @@
         <!-- CONTENT -->
         <div id="content">
             <div class="myaccount">
-                <form method="POST" target="_self"> <!-- LOGIN -->
+                <form method="POST" name="accForm" onsubmit="return validiateAccForm()" target="_self"> <!-- LOGIN -->
                     <font>USERNAME</font>
                     <input type="text" name="accUsername" size="10">
                     <br />
@@ -73,7 +87,6 @@
                     <input type="submit" value="Login" name="login">&nbsp;&nbsp; &nbsp; &nbsp;
                     <input type="submit" value="Sign up" name="signup">
                 </form>
-
                 <br />
                 <p id="loginresult"></p>
             </div>
@@ -151,22 +164,26 @@ if ($db_conn) {
         $alltuples = array(
             $tuple,
         );
-        $result = executePlainSQL("SELECT id FROM Trainer WHERE name = ':bind1' AND password = ':bind2'");
-        OCICommit($db_conn);
-        if ($result && $success) {
-            echo "HOORAY";
-        } else {
+        $result;
+        try {
+            $result = executePlainSQL("SELECT id FROM Trainer WHERE name = ':bind1' AND password = ':bind2'");
+            OCICommit($db_conn);
+            if ($result && $success) {
+                echo "HOORAY";
+            }
+        } catch {
             echo "KMS";
-        }
+        }        
     // ---- signup ----
     } else if (array_key_exists('signup', $_POST)) {
         $maxId = executePlainSQL("SELECT MAX(id) FROM Trainer"); // force-make unique id
         echo "raw executePlainSQL : ".$maxId."<br/>";
         $maxId = OCI_Fetch_Array($maxId, OCI_BOTH);
         echo "OCI_Fetch_array($maxId) : ".$maxId."<br/>";
-        echo "\$maxId[0] : ".$maxId[0]."<br/>";
-        echo "\$maxId[\"ID\"] : ".$maxId["ID"]."<br/>";
-        echo "and use \$maxId[0]";
+        echo "maxId[0] : ".$maxId[0]."<br/>";
+        echo "maxId[\"ID\"] : ".$maxId["id"]."<br/>";
+        echo "and use maxId[0]."."<br/>";
+        echo "cehck maxId[0] + 1".$maxId[0]+1;
         $maxId = $maxId[0];
         if (is_nan($maxId)) {
             $maxId = 0;
