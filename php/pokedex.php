@@ -205,6 +205,7 @@
                             $manager = DBManager::Instance();
 
                                 if (array_key_exists('signup', $_POST)) {
+                                    $result;
                                     //Getting the values from user and insert data into the table
                                     $maxID = $manager->executePlainSQL("SELECT * FROM Species WHERE ");
                                     $tuple = array(
