@@ -68,6 +68,13 @@ if ($_GET['logout']) {
         <!-- CONTENT -->
         <div id="content">
             <div id="myaccount">
+				<?php if (isset(_SESSION['ID']) {?>
+					<p> You are currently logged in as: <p>
+					<?php echo _SESSION['ID'];?>
+					<br/><br/>
+					<a href="myaccount.php?logout=1">Logout</a>
+                </form>
+				<?php } else {?>
                 <form method="POST" name="accForm" onsubmit="return validateAccForm()" target="_self">
                     <p>USERNAME</p>
                     <input type="text" name="accUsername" size="10">
@@ -77,8 +84,8 @@ if ($_GET['logout']) {
                     <br/><br/>
                     <input type="submit" value="LOGIN" name="login">&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="submit" value="SIGN UP" name="signup">
-					<a href="myaccount.php?logout=1">Logout</a>
                 </form>
+				<?php }?>
                 <br />
                 <p id="loginresult">
                     &nbsp;
