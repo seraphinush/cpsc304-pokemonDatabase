@@ -2,43 +2,22 @@
 
 <head>
 
-    <link rel="stylesheet" type="text/css" href="main.css">
-    <link rel="stylesheet" type="text/css" href="./css/pokedex.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
 
     <script>
-        function showMyAccount(navName) {
-            var div = document.getElementsByClassName(navName)[0];
-            if (div.style.display == "inherit") {
-                return;
-            } else {
-                let navNames = [
-                    "welcome",
-                    "myaccount",
-                    "mypokemon",
-                    "storage",
-                    "pokedex"
-                ];
-                for (let i = 0, n = navNames.length; i < n; i++) {
-                    let div = document.getElementsByClassName(navNames[i])[0];
-                    if (navNames[i] == navName) {
-                        div.style.display = "inherit";
-                    } else {
-                        div.style.display = "none";
-                    }
-                }
-            }
-        }
-
         function validateAccForm() {
             let myName = document.forms["accForm"]["accUsername"].value;
             let myPass = document.forms["accForm"]["accPassword"].value;
             if (myName === "" || myPass === "") {
                 alert("Fields cannot be empty.");
+                document.getElementById("loginresult").innerHTML = "Fields cannot be empty.";
                 return false;
-            } else if (myPassword.length < 5) {
+            } else if (myPass.length < 5) {
                 alert("Passwords must be longer than 4 characters.");
+                document.getElementById("loginresult").innerHTML = "Passwords must be longer than 4 characters.";
                 return false;
             } else {
+                document.getElementById("loginresult").innerHTML = "Login successful.";
                 return true;
             }
         }
@@ -77,18 +56,18 @@
         <!-- CONTENT -->
         <div id="content">
             <div class="myaccount">
-                <form method="POST" name="accForm" onsubmit="return validiateAccForm()" target="_self"> <!-- LOGIN -->
-                    <font>USERNAME</font>
+                <form method="POST" name="accForm" onsubmit="return validateAccForm()" target="_self">
+                    <span>USERNAME</span>
                     <input type="text" name="accUsername" size="10">
                     <br />
-                    <font>PASSWORD</font>
+                    <span>PASSWORD</span>
                     <input type="text" name="accPassword" size="10">
                     <br /><br />
                     <input type="submit" value="Login" name="login">&nbsp;&nbsp; &nbsp; &nbsp;
                     <input type="submit" value="Sign up" name="signup">
                 </form>
                 <br />
-                <p id="loginresult"></p>
+                <p id="loginresult">&nbsp;</p>
             </div>
         </div>
 
@@ -109,45 +88,39 @@ function executeBoundSQL($cmdstr, $list)
     global $db_conn, $success;
     $statement = OCIParse($db_conn, $cmdstr);
     if (!$statement) {
-        echo "<br>Cannot parse the following command: " . $cmdstr . "<br>";
-        $e = OCI_Error($db_conn);
-        echo htmlentities($e['message']);
+        $e = OCI_Error($db_conn); // handle error in $statement
         $success = false;
+        new Exception("<br/>Cannot parse the following command: ".$cmdstr."<br/>".$e['message']);
     }
     foreach ($list as $tuple) {
         foreach ($tuple as $bind => $val) {
-            echo $val."<br>";
-            echo $bind."<br>";
             OCIBindByName($statement, $bind, $val);
             unset($val);
         }
         $r = OCIExecute($statement, OCI_DEFAULT);
         if (!$r) {
-            echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
             $e = OCI_Error($statement); // handle error in $statement
-            echo htmlentities($e['message']);
-            echo "<br>";
             $success = false;
+            new Exception("<br/>Cannot execute the following command: ".$cmdstr."<br/>".$e['message']);
         }
     }
 
 }
+
 function executePlainSQL($cmdstr)
 {
     global $db_conn, $success;
     $statement = OCIParse($db_conn, $cmdstr);
     if (!$statement) {
-        echo "<br>Cannot parse the following command: " . $cmdstr . "<br>";
-        $e = OCI_Error($db_conn);
-        echo htmlentities($e['message']);
+        $e = OCI_Error($db_conn); // handle error in $statement
         $success = false;
+        new Exception("<br/>Cannot parse the following command: ".$cmdstr."<br/>".$e['message']);
     }
     $r = OCIExecute($statement, OCI_DEFAULT);
     if (!$r) {
-        echo "<br>Cannot execute the following command: " . $cmdstr . "<br>";
-        $e = oci_error($statement); // handle error in $statement
-        echo htmlentities($e['message']);
+        $e = OCI_Error($statement); // handle error in $statement
         $success = false;
+        new Exception("<br/>Cannot execute the following command: ".$cmdstr."<br/>".$e['message']);
     } else {
     }
     return $statement;
@@ -166,31 +139,34 @@ if ($db_conn) {
         );
         $result;
         try {
-            $result = executePlainSQL("SELECT id FROM Trainer WHERE name = ':bind1' AND password = ':bind2'");
+            $result = executePlainSQL("SELECT id, name, password FROM Trainer WHERE name = ':bind1' AND password = ':bind2'");
+            echo "test : ".$result."<br/>";
+            $result = OCI_Fetch_Array($result, OCI_ASSOC);
+            echo "test : ".$result."<br/>";
+            echo "test : ".$result["id"]."<br/>";
+            echo "test : ".$result["ID"]."<br/>";
+            $result = $result[0];
+            echo "test : ".$result."<br/>";
             OCICommit($db_conn);
             if ($result && $success) {
                 echo "HOORAY";
-            }
-        } catch {
-            echo "KMS";
-        }        
+            } else {
+                echo "KMS";
+            }  
+        } catch (Exception $e) {
+            echo $e['message'];
+        }
+        OCILogoff($db_conn);
     // ---- signup ----
     } else if (array_key_exists('signup', $_POST)) {
         $maxId = executePlainSQL("SELECT MAX(id) FROM Trainer"); // force-make unique id
-        echo "raw executePlainSQL : ".$maxId."<br/>";
         $maxId = OCI_Fetch_Array($maxId, OCI_BOTH);
-        echo "OCI_Fetch_array($maxId) : ".$maxId."<br/>";
-        echo "maxId[0] : ".$maxId[0]."<br/>";
-        echo "maxId[\"ID\"] : ".$maxId["id"]."<br/>";
-        echo "and use maxId[0]."."<br/>";
-        echo "cehck maxId[0] + 1".$maxId[0]+1;
         $maxId = $maxId[0];
-        if (is_nan($maxId)) {
+        if (is_nan($maxId) || $maxId === 0) {
             $maxId = 0;
         } else {
             $maxId++;
         }
-        echo "post : " . $maxId;
         $tuple = array(
             ":bind1" => $maxId,
             ":bind2" => $_POST['accUsername'],
@@ -208,4 +184,5 @@ if ($db_conn) {
     $e = OCI_Error(); // For OCILogon errors pass no handle
     echo htmlentities($e['message']);
 }
+
 ?>
