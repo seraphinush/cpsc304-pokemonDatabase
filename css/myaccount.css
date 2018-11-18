@@ -1,0 +1,48 @@
+#myaccount {
+    display: inherit;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+#myaccount form p {
+    font-size: 12px;
+    margin: 0px 0px 0px -3px;
+    padding: 0;
+}
+
+#myaccount p {
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+}
+
+input[type=submit] {
+    font-family: 'Segoe UI';
+    font-size: 12px;
+    text-decoration: none;
+    background-color: #ffecce;
+    border: none;
+    padding: 7px 12px;
+    cursor: pointer;
+}
+
+input[type=text] {
+    font-family: 'Segoe UI';
+    font-size: 12px;
+    text-decoration: none;
+    background-color: #ffffff00;
+}
+
+input:hover {
+    -webkit-transition-duration: 0.4s;
+    -moz-transition-duration: 0.4s;
+    -o-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    background-color: #ffffff88;
+}
+
+input:active {
+    color: #ffffffff;
+}

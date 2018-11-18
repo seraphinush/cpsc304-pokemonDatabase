@@ -20,7 +20,9 @@
 
         <!-- NAVIGATION -->
         <div id="nav">
-            <div class="user_container">
+            <div id="user_container">
+                <img src="./default_profile.jpg" style="width:100px;height:100px;"/>
+                <p>&nbsp;</p>
             </div>
             <div onclick="location.href='./php/myaccount.php'" class="nav-item">
                 <p>MY ACCOUNT</p>
@@ -38,10 +40,10 @@
 
         <!-- CONTENT -->
         <div id="content">
-            <div class="welcome">
+            <div id="welcome">
                 <p>Welcome trainer.</p>
             </div>
-        </div> 
+        </div>
     </div>
 
 

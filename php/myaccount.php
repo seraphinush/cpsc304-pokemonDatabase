@@ -3,6 +3,7 @@
 <head>
 
     <link rel="stylesheet" type="text/css" href="../main.css">
+    <link rel="stylesheet" type="text/css" href="../css/myaccount.css">
 
     <script>
         function validateAccForm() {
@@ -10,14 +11,13 @@
             let myPass = document.forms["accForm"]["accPassword"].value;
             if (myName === "" || myPass === "") {
                 alert("Fields cannot be empty.");
-                document.getElementById("loginresult").innerHTML = "Fields cannot be empty.";
+                document.getElementById("loginresult").innerHTML = "<font color='E69F00'>Fields cannot be empty.</font>";
                 return false;
             } else if (myPass.length < 1) {
                 alert("Passwords must be longer than 4 characters.");
-                document.getElementById("loginresult").innerHTML = "Passwords must be longer than 4 characters.";
+                document.getElementById("loginresult").innerHTML = "<font color='E69F00'>Passwords must be longer than 4 characters.</font>";
                 return false;
             } else {
-                document.getElementById("loginresult").innerHTML = "Login successful.";
                 return true;
             }
         }
@@ -36,8 +36,9 @@
 
         <!-- NAVIGATION -->
         <div id="nav">
-            <div class="user_container">
-                <div>test</div>
+            <div id="user_container">
+                <img src="../default_profile.jpg" style="width:100px;height:100px;"/>
+                <p>&nbsp;</p>
             </div>
             <div onclick="location.href='./myaccount.php'" class="nav-item">
                 <p>MY ACCOUNT</p>
@@ -55,74 +56,75 @@
 
         <!-- CONTENT -->
         <div id="content">
-            <div class="myaccount">
+            <div id="myaccount">
                 <form method="POST" name="accForm" onsubmit="return validateAccForm()" target="_self">
-                    <span>USERNAME</span>
+                    <p>USERNAME</p>
                     <input type="text" name="accUsername" size="10">
-                    <br />
-                    <span>PASSWORD</span>
+                    <br/>
+                    <p>PASSWORD</p>
                     <input type="text" name="accPassword" size="10">
-                    <br /><br />
-                    <input type="submit" value="Login" name="login">&nbsp;&nbsp; &nbsp; &nbsp;
-                    <input type="submit" value="Sign up" name="signup">
+                    <br/><br/>
+                    <input type="submit" value="LOGIN" name="login">&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" value="SIGN UP" name="signup">
                 </form>
                 <br />
-                <p id="loginresult">&nbsp;</p>
+                <p id="loginresult">
+                    &nbsp;
+                    <?php
+                        include './dbmanager.php';
+                        $manager = DBManager::Instance();
+                        
+                        // ---- login ----
+                        if (array_key_exists('login', $_POST)) {
+                            $name = $_POST['accUsername'];
+                            $pass = $_POST['accPassword'];
+                            $result;
+                            try {
+                                $result = $manager->executePlainSQL("SELECT id, name, password FROM Trainer WHERE name='$name' AND password='$pass'");
+                                if ($result && $success) {
+                                    echo "<font color='56B4E9'>Successful.</font>";
+                                } else {
+                                    echo "<font color='E69F00'>Unsuccessful.</font>";
+                                }
+                                OCICommit($db_conn);
+                            } catch (Exception $e) {
+                                echo htmlentities($e['message']);
+                            }
+                            // ---- signup ----
+                        } else if (array_key_exists('signup', $_POST)) {
+                            $maxId;
+                            $result;
+                            try {
+                                $maxId = $manager->executePlainSQL("SELECT MAX(id) FROM Trainer"); // force-make unique id
+                                $maxId = OCI_Fetch_Array($maxId, OCI_BOTH);
+                                $maxId = $maxId[0];
+                                if (is_nan($maxId) || $maxId === 0) {
+                                    $maxId = 0;
+                                } else {
+                                    $maxId++;
+                                }
+                                $tuple = array(
+                                    ":bind1" => $maxId,
+                                    ":bind2" => $_POST['accUsername'],
+                                    ":bind3" => $_POST['accPassword'],
+                                );
+                                $alltuples = array(
+                                    $tuple,
+                                );
+                                $result = $manager->executeBoundSQL("insert into Trainer values (:bind1, :bind2, :bind3)", $alltuples);
+                                if ($result && $success) {
+                                    echo "<font color='56B4E9'>Successful.</font>";
+                                } else {
+                                    echo "<font color='E69F00'>Name is already taken.</font>";
+                                }
+                            } catch (Exception $e) {
+                                echo htmlentities($e['message']);
+                            }
+                        }
+                    ?>
+                </p>
             </div>
         </div>
-
     </div>
-
-
-
 </body>
-
 </html>
-
-<?php
-include './dbmanager.php';
-
-
-$manager = DBManager::Instance();
-    // ---- login ----
-    if (array_key_exists('login', $_POST)) {
-	$user = $_POST['accUsername'];
-        $pass = $_POST['accPassword'];
-        $result;
-        try {
-            $result = $manager->executePlainSQL("SELECT id, name, password FROM Trainer WHERE name = '" . $user . "' AND password = '" . $pass . "'");
-            while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {;
-				echo "test : " . $row["ID"] . "<br/>";
-				echo "test : " . $row["NAME"] . "<br/>";
-				echo "test : " . $row["PASSWORD"] . "<br/>";
-			}
-            if ($result && $success) {
-                echo "HOORAY";
-            } else {
-                echo "KMS";
-            }  
-        } catch (Exception $e) {
-            echo $e['message'];
-        }
-    // ---- signup ----
-    } else if (array_key_exists('signup', $_POST)) {
-        $maxId = $manager->executePlainSQL("SELECT MAX(id) FROM Trainer"); // force-make unique id
-        $maxId = OCI_Fetch_Array($maxId, OCI_BOTH);
-        $maxId = $maxId[0];
-        if (is_nan($maxId) || $maxId === 0) {
-            $maxId = 0;
-        } else {
-            $maxId++;
-        }
-        $tuple = array(
-            ":bind1" => $maxId,
-            ":bind2" => $_POST['accUsername'],
-            ":bind3" => $_POST['accPassword'],
-        );
-        $alltuples = array(
-            $tuple,
-        );
-        $manager->executeBoundSQL("insert into Trainer values (:bind1, :bind2, :bind3)", $alltuples);
-    }
-
-?>
