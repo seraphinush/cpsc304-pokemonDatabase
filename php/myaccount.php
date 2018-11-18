@@ -80,65 +80,17 @@
 </html>
 
 <?php
-include 'dbmanager.php';
-/*
-$success = true; // error flag
-$db_conn = OCILogon("ora_l8o0b", "a33250151", "dbhost.ugrad.cs.ubc.ca:1522/ug");
+include './dbmanager.php';
 
-function executeBoundSQL($cmdstr, $list)
-{
-    global $db_conn, $success;
-    $statement = OCIParse($db_conn, $cmdstr);
-    if (!$statement) {
-        $e = OCI_Error($db_conn); // handle error in $statement
-        $success = false;
-        new Exception("<br/>Cannot parse the following command: ".$cmdstr."<br/>".$e['message']);
-    }
-    foreach ($list as $tuple) {
-        foreach ($tuple as $bind => $val) {
-            OCIBindByName($statement, $bind, $val);
-            unset($val);
-        }
-        $r = OCIExecute($statement, OCI_DEFAULT);
-        if (!$r) {
-            $e = OCI_Error($statement); // handle error in $statement
-            $success = false;
-            new Exception("<br/>Cannot execute the following command: ".$cmdstr."<br/>".$e['message']);
-        }
-    }
 
-}
-
-function executePlainSQL($cmdstr)
-{
-    global $db_conn, $success;
-    $statement = OCIParse($db_conn, $cmdstr);
-    if (!$statement) {
-        $e = OCI_Error($db_conn); // handle error in $statement
-        $success = false;
-        new Exception("<br/>Cannot parse the following command: ".$cmdstr."<br/>".$e['message']);
-    }
-    $r = OCIExecute($statement, OCI_DEFAULT);
-    if (!$r) {
-        $e = OCI_Error($statement); // handle error in $statement
-        $success = false;
-        new Exception("<br/>Cannot execute the following command: ".$cmdstr."<br/>".$e['message']);
-    } else {
-    }
-    return $statement;
-
-}
-*/
-//if ($db_conn) {
-$Manager = DBManager::Instance();
+$manager = DBManager::Instance();
     // ---- login ----
     if (array_key_exists('login', $_POST)) {
-		$user = $_POST['accUsername'];
+	$user = $_POST['accUsername'];
         $pass = $_POST['accPassword'];
         $result;
         try {
-            $result = $Manager::executePlainSQL("SELECT id, name, password FROM Trainer WHERE name = '" . $user . "' AND password = '" . $pass . "'");
-            //OCICommit($db_conn);
+            $result = $manager->executePlainSQL("SELECT id, name, password FROM Trainer WHERE name = '" . $user . "' AND password = '" . $pass . "'");
             while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {;
 				echo "test : " . $row["ID"] . "<br/>";
 				echo "test : " . $row["NAME"] . "<br/>";
@@ -152,10 +104,9 @@ $Manager = DBManager::Instance();
         } catch (Exception $e) {
             echo $e['message'];
         }
-        //OCILogoff($db_conn);
     // ---- signup ----
-    }/* else if (array_key_exists('signup', $_POST)) {
-        $maxId = executePlainSQL("SELECT MAX(id) FROM Trainer"); // force-make unique id
+    } else if (array_key_exists('signup', $_POST)) {
+        /*$maxId = executePlainSQL("SELECT MAX(id) FROM Trainer"); // force-make unique id
         $maxId = OCI_Fetch_Array($maxId, OCI_BOTH);
         $maxId = $maxId[0];
         if (is_nan($maxId) || $maxId === 0) {
@@ -172,7 +123,7 @@ $Manager = DBManager::Instance();
             $tuple,
         );
         executeBoundSQL("insert into Trainer values (:bind1, :bind2, :bind3)", $alltuples);
-        OCICommit($db_conn);
+        OCICommit($db_conn);*/
     }
  /*   OCILogoff($db_conn);
 } else {

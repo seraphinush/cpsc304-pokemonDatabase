@@ -3,14 +3,12 @@
 * Singleton Database Manager
 *
 */
+function echothingy() {
+	return "thingy";
+}
 
 final class DBManager
 {
-	
-	$UNIXUSER = "ora_l8o0b";
-	$UNIXPASS = "a33250151";
-	$db_conn;
-	$success;
 	/*
 	* Call this method to access Singleton. Like this:
 	* $yourVariable = DBManager::Instance();
@@ -30,12 +28,11 @@ final class DBManager
 	private function __construct() {}
 
 	private function connect() {
-		global $db_conn;
-		$db_conn = OCILogon($UNIXUSER, $UNIXPASS, "dbhost.ugrad.cs.ubc.ca:1522/ug");
+		$db_conn = OCILogon("ora_l8o0b", "a33250151", "dbhost.ugrad.cs.ubc.ca:1522/ug");
+		return $db_conn;
 	}
 
-	private function disconnect() {
-		global $db_conn;
+	private function disconnect($db_conn) {
 		OCILogoff($db_conn);
 	}
 
@@ -47,9 +44,9 @@ final class DBManager
 
 	function executeBoundSQL($cmdstr, $list)
 	{
-		connect();
-		global $db_conn, $success;
-		if (db_conn) {
+		$db_conn = $this->connect();
+		$success = true;
+		if ($db_conn) {
 			$statement = OCIParse($db_conn, $cmdstr);
 			if (!$statement) {
 				$e = OCI_Error($db_conn); // handle error in $statement
@@ -69,7 +66,7 @@ final class DBManager
 				}
 			}
 			OCICommit($db_conn);
-			disconnect();
+			$this->disconnect($db_conn);
 		} else {
 			printErrors();
 		}
@@ -77,8 +74,8 @@ final class DBManager
 
 	function executePlainSQL($cmdstr)
 	{
-		connect();
-		global $db_conn, $success;
+		$db_conn = $this->connect();
+		$success = true;
 		if ($db_conn) {
 			$statement = OCIParse($db_conn, $cmdstr);
 			if (!$statement) {
@@ -94,7 +91,7 @@ final class DBManager
 			} else {
 			}
 			OCICommit($db_conn);
-			disconnect();
+			$this->disconnect($db_conn);
 			return $statement;
 		} else {
 			printErrors();
