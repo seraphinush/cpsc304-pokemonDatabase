@@ -44,6 +44,26 @@
             <div id="pokedex">
                 <div id="pokedex-container">
                     <div id="pokedex-left">
+                        <div id="type-list">
+                            <div class="type-list-item"><span style="text-align:center">bug</span></div>
+                            <div class="type-list-item"><span style="text-align:center">dark</span></div>
+                            <div class="type-list-item"><span style="text-align:center">dragon</span></div>
+                            <div class="type-list-item"><span style="text-align:center">electric</span></div>
+                            <div class="type-list-item"><span style="text-align:center">fairy</span></div>
+                            <div class="type-list-item"><span style="text-align:center">fighting</span></div>
+                            <div class="type-list-item"><span style="text-align:center">fire</span></div>
+                            <div class="type-list-item"><span style="text-align:center">flying</span></div>
+                            <div class="type-list-item"><span style="text-align:center">ghost</span></div>
+                            <div class="type-list-item"><span style="text-align:center">grass</span></div>
+                            <div class="type-list-item"><span style="text-align:center">ground</span></div>
+                            <div class="type-list-item"><span style="text-align:center">ice</span></div>
+                            <div class="type-list-item"><span style="text-align:center">normal</span></div>
+                            <div class="type-list-item"><span style="text-align:center">poison</span></div>
+                            <div class="type-list-item"><span style="text-align:center">psychic</span></div>
+                            <div class="type-list-item"><span style="text-align:center">rock</span></div>
+                            <div class="type-list-item"><span style="text-align:center">steel</span></div>
+                            <div class="type-list-item"><span style="text-align:center">water</span></div>
+                        </div>
                         <div id="pokedex-list">
                             <div class="pokedex-list-item"><span>1</span><span style="float:right" class="pokemon-list-item-right">bulbasaur</span></div>
                             <div class="pokedex-list-item"><span>2</span><span style="float:right" class="pokemon-list-item-right">ivysaur</span></div>
@@ -199,26 +219,37 @@
                         </div>
                     </div>
                     <div id="pokedex-right">
+                        <div class="hidden">
+                            <form method="POST" name="accForm" target="_self">
+                                <input type="text" name="accUsername" size="10">
+                                <input type="text" name="accPassword" size="10">
+                                <input type="submit" value="SIGN UP" name="signup">
+                            </form>
+                        </div>
                         <div id="pokedex-entry">
                             <?php
                             include './dbmanager.php';
                             $manager = DBManager::Instance();
 
-                                if (array_key_exists('signup', $_POST)) {
-                                    $result;
-                                    //Getting the values from user and insert data into the table
-                                    $maxID = $manager->executePlainSQL("SELECT * FROM Species WHERE ");
-                                    $tuple = array(
-                                        ":bind1" => $_POST['accUsername'],
-                                        ":bind2" => $_POST['accPassword'],
-                                        ":bind3" => $maxID + 1,
-                                    );
-                                    $alltuples = array(
-                                        $tuple,
-                                    );
-                                    $result = $manager->executeBoundSQL("insert into Trainer values (:bind3, :bind1, :bind2)", $alltuples);
-                                    echo "test";
-                                }
+                            function print($result) {
+
+                            }
+
+                            if (array_key_exists('test', $_POST)) {
+                                $result;
+                                //Getting the values from user and insert data into the table
+                                $result = $manager->executeBoundSQL("SELECT * FROM Species WHERE ");
+                                $tuple = array(
+                                    ":bind1" => $_POST['accUsername'],
+                                    ":bind2" => $_POST['accPassword'],
+                                    ":bind3" => $maxID + 1,
+                                );
+                                $alltuples = array(
+                                    $tuple,
+                                );
+                                $result = $manager->executeBoundSQL("insert into Trainer values (:bind3, :bind1, :bind2)", $alltuples);
+                                echo "test";
+                            }
                             ?>
                         </div>
                     </div>
