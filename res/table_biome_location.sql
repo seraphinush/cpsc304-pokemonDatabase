@@ -1,5 +1,5 @@
 CREATE TABLE Biome_Location (
-Biome_name 		CHAR(13),
+Biome_name 		CHAR(30),
 Latitude		NUMBER(8,6),
 Longitude		NUMBER(9,6),
 PRIMARY KEY (Biome_name, latitude, longitude),

@@ -1,6 +1,6 @@
 CREATE TABLE Strength (
-AttackType_name  CHAR(8), 
-DefendType_name  CHAR(8), 
+AttackType_name  CHAR(10), 
+DefendType_name  CHAR(10), 
 Effectiveness    CHAR(18),
 PRIMARY KEY (AttackType_name, DefendType_name),
 FOREIGN KEY (AttackType_name)
