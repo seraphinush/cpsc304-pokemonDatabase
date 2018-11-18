@@ -21,8 +21,9 @@
 
         <!-- NAVIGATION -->
         <div id="nav">
-            <div class="user_container">
-                <div>test</div>
+            <div id="user_container">
+                <img src="../default_profile.jpg" style="width:100px;height:100px;"/>
+                <p>&nbsp;</p>
             </div>
             <div onclick="location.href='./myaccount.php'" class="nav-item">
                 <p>MY ACCOUNT</p>
@@ -40,7 +41,7 @@
 
         <!-- CONTENT -->
         <div id="content">
-            <div class="pokedex">
+            <div id="pokedex">
                 <div id="pokedex-container">
                     <div id="pokedex-left">
                         test

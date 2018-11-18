@@ -74,7 +74,7 @@ p {
     margin: 0;
 }
 
-.welcome {
+#welcome {
     display: inherit;
     position: relative;
     top: 50%;
@@ -88,7 +88,7 @@ p {
     padding: 5px;
 }
 
-#content .myaccount {
+#myaccount {
     display: inherit;
     position: relative;
     top: 50%;
@@ -96,14 +96,21 @@ p {
     text-align: center;
 }
 
-#content .mypokemon {
+#mypokemon {
     display: inherit;
 }
 
-#content .storage {
+#storage {
     display: inherit;
 }
 
-#content .pokedex {
+#pokedex {
     display: inherit;
+}
+
+#user_container {
+    display: block;
+    text-align: center;
+    margin: 15px 5px 0px 5px;
+    padding: 10px 5px 0px 5px;
 }
