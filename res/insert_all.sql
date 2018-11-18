@@ -12,4 +12,4 @@ START insert_evolutions;
 START insert_type_biome;
 START insert_strength;
 START insert_biome_location;
-START insert pOwnership;
+START insert_pOwnership;
