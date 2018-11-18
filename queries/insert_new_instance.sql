@@ -1,0 +1,1 @@
+INSERT INTO PokemonInstance(id,Species_name,exp,pokelevel,weight,height,nickName) VALUES ((select MAX(id) + 1 from PokemonInstance),:Species_name, :xp , :pokelevel, :weight , :height, :nickname);

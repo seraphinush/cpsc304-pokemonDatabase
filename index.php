@@ -1,3 +1,7 @@
+<?php 
+ini_set('session.save_path', getcwd() . "/../../public_html_sessions");
+$start = session_start(); 
+?>
 <html>
 
 <head>
@@ -51,5 +55,4 @@
 </body>
 
 </html>
-<php? session_start(); ?>
 

@@ -1,0 +1,1 @@
+DELETE FROM PokemonOwnership WHERE Pokemon_id = :id;
