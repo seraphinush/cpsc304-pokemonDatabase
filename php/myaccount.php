@@ -71,108 +71,55 @@
                 <p id="loginresult">
                     &nbsp;
                     <?php
-                        $success = true; // error flag
-                        $db_conn = OCILogon("ora_v9m8", "a38134110", "dbhost.ugrad.cs.ubc.ca:1522/ug");
-
-                        function executeBoundSQL($cmdstr, $list)
-                        {
-                            global $db_conn, $success;
-                            $statement = OCIParse($db_conn, $cmdstr);
-                            if (!$statement) {
-                                $e = OCI_Error($db_conn); // handle error in $statement
-                                $success = false;
-                                new Exception("<br/>Cannot parse the following command: " . $cmdstr . "<br/>" . $e['message']);
-                            }
-                            foreach ($list as $tuple) {
-                                foreach ($tuple as $bind => $val) {
-                                    OCIBindByName($statement, $bind, $val);
-                                    unset($val);
+                        include './dbmanager.php';
+                        $manager = DBManager::Instance();
+                        
+                        // ---- login ----
+                        if (array_key_exists('login', $_POST)) {
+                            $name = $_POST['accUsername'];
+                            $pass = $_POST['accPassword'];
+                            $result;
+                            try {
+                                $result = $manager->executePlainSQL("SELECT id, name, password FROM Trainer WHERE name='$name' AND password='$pass'");
+                                if ($result && $success) {
+                                    echo "<font color='56B4E9'>Successful.</font>";
+                                } else {
+                                    echo "<font color='E69F00'>Unsuccessful.</font>";;
                                 }
-                                $r = OCIExecute($statement, OCI_DEFAULT);
-                                if (!$r) {
-                                    $e = OCI_Error($statement); // handle error in $statement
-                                    $success = false;
-                                    new Exception("<br/>Cannot execute the following command: " . $cmdstr . "<br/>" . $e['message']);
+                                OCICommit($db_conn);
+                            } catch (Exception $e) {
+                                echo htmlentities($e['message']);
+                            }
+                            // ---- signup ----
+                        } else if (array_key_exists('signup', $_POST)) {
+                            $maxId;
+                            $result;
+                            try {
+                                $maxId = $manager->executePlainSQL("SELECT MAX(id) FROM Trainer"); // force-make unique id
+                                $maxId = OCI_Fetch_Array($maxId, OCI_BOTH);
+                                $maxId = $maxId[0];
+                                if (is_nan($maxId) || $maxId === 0) {
+                                    $maxId = 0;
+                                } else {
+                                    $maxId++;
                                 }
-                            }
-                            return $statement;
-
-                        }
-
-                        function executePlainSQL($cmdstr)
-                        {
-                            global $db_conn, $success;
-                            $statement = OCIParse($db_conn, $cmdstr);
-                            if (!$statement) {
-                                $e = OCI_Error($db_conn); // handle error in $statement
-                                $success = false;
-                                new Exception("<br/>Cannot parse the following command: " . $cmdstr . "<br/>" . $e['message']);
-                            }
-                            $r = OCIExecute($statement, OCI_DEFAULT);
-                            if (!$r) {
-                                $e = OCI_Error($statement); // handle error in $statement
-                                $success = false;
-                                new Exception("<br/>Cannot execute the following command: " . $cmdstr . "<br/>" . $e['message']);
-                            } else {
-                            }
-                            return $statement;
-
-                        }
-
-                        if ($db_conn) {
-                            // ---- login ----
-                            if (array_key_exists('login', $_POST)) {
-                                $name = $_POST['accUsername'];
-                                $pass = $_POST['accPassword'];
-                                $result;
-                                try {
-                                    $result = executePlainSQL("SELECT id, name, password FROM Trainer WHERE name='$name' AND password='$pass'");
-                                    if ($result && $success) {
-                                        echo "<font color='56B4E9'>Successful.</font>";
-                                    } else {
-                                        echo "<font color='E69F00'>Unsuccessful.</font>";;
-                                    }
-                                    OCICommit($db_conn);
-                                } catch (Exception $e) {
-                                    echo htmlentities($e['message']);
+                                $tuple = array(
+                                    ":bind1" => $maxId,
+                                    ":bind2" => $_POST['accUsername'],
+                                    ":bind3" => $_POST['accPassword'],
+                                );
+                                $alltuples = array(
+                                    $tuple,
+                                );
+                                $result = $manager->executeBoundSQL("insert into Trainer values (:bind1, :bind2, :bind3)", $alltuples);
+                                if ($result && $success) {
+                                    echo "<font color='56B4E9'>Successful.</font>";
+                                } else {
+                                    echo "<font color='E69F00'>Name is already taken.</font>";;
                                 }
-                                // ---- signup ----
-                            } else if (array_key_exists('signup', $_POST)) {
-                                $maxId;
-                                $result;
-                                try {
-                                    $maxId = executePlainSQL("SELECT MAX(id) FROM Trainer"); // force-make unique id
-                                    $maxId = OCI_Fetch_Array($maxId, OCI_BOTH);
-                                    $maxId = $maxId[0];
-                                    if (is_nan($maxId) || $maxId === 0) {
-                                        $maxId = 0;
-                                    } else {
-                                        $maxId++;
-                                    }
-                                    $tuple = array(
-                                        ":bind1" => $maxId,
-                                        ":bind2" => $_POST['accUsername'],
-                                        ":bind3" => $_POST['accPassword'],
-                                    );
-                                    $alltuples = array(
-                                        $tuple,
-                                    );
-                                    $result = executeBoundSQL("insert into Trainer values (:bind1, :bind2, :bind3)", $alltuples);
-                                    if ($result && $success) {
-                                        echo "<font color='56B4E9'>Successful.</font>";
-                                    } else {
-                                        echo "<font color='E69F00'>Name is already taken.</font>";;
-                                    }
-                                    OCICommit($db_conn);
-                                } catch (Exception $e) {
-                                    echo htmlentities($e['message']);
-                                }
+                            } catch (Exception $e) {
+                                echo htmlentities($e['message']);
                             }
-                            OCILogoff($db_conn);
-                        } else {
-                            echo "cannot connect";
-                            $e = OCI_Error(); // For OCILogon errors pass no handle
-                            echo htmlentities($e['message']);
                         }
                     ?>
                 </p>
