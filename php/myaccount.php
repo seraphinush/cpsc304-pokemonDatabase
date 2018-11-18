@@ -106,7 +106,7 @@ $manager = DBManager::Instance();
         }
     // ---- signup ----
     } else if (array_key_exists('signup', $_POST)) {
-        /*$maxId = executePlainSQL("SELECT MAX(id) FROM Trainer"); // force-make unique id
+        $maxId = $manager->executePlainSQL("SELECT MAX(id) FROM Trainer"); // force-make unique id
         $maxId = OCI_Fetch_Array($maxId, OCI_BOTH);
         $maxId = $maxId[0];
         if (is_nan($maxId) || $maxId === 0) {
@@ -122,14 +122,7 @@ $manager = DBManager::Instance();
         $alltuples = array(
             $tuple,
         );
-        executeBoundSQL("insert into Trainer values (:bind1, :bind2, :bind3)", $alltuples);
-        OCICommit($db_conn);*/
+        $manager->executeBoundSQL("insert into Trainer values (:bind1, :bind2, :bind3)", $alltuples);
     }
- /*   OCILogoff($db_conn);
-} else {
-    echo "cannot connect";
-    $e = OCI_Error(); // For OCILogon errors pass no handle
-    echo htmlentities($e['message']);
-}*/
 
 ?>
