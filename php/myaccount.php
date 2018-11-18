@@ -1,6 +1,6 @@
 <?php 
 session_start(); 
-if (isset($_GET['logout'])) {
+if ($_GET['logout']) {
 	$_SESSION = array();
 	if ($_COOKIE[session_name()]) {
 		setcookie(session_name(), '', time()-42000, '/');
@@ -95,12 +95,11 @@ if (isset($_GET['logout'])) {
                                 $result = $manager->executePlainSQL("SELECT id, name, password FROM Trainer WHERE name='$name' AND password='$pass'");
                                 if ($result) {
                                     echo "<font color='56B4E9'>Successful.</font>";
-									$result = OCI_Fetch_Array($result, OCI_BOTH));
-									echo "Welcome"
+									$result = OCI_Fetch_Array($result, OCI_BOTH);
+									echo "Welcome";
 									echo "<tr><td>" . $result["ID"] . "</td><td>" . $result["NAME"] . "</td><td>" . $result["PASSWORD"] . "</td></tr>";
 									$_SESSION["ID"] = $result["ID"];
 									$_SESSION["NAME"] = $result["NAME"];
-								}
                                 } else {
                                     echo "<font color='E69F00'>Unsuccessful.</font>";
                                 }
