@@ -6,5 +6,5 @@ FOREIGN KEY (Species_name)
   REFERENCES Species(name)
   ON DELETE CASCADE,
 FOREIGN KEY (Type_name)
-  REFERENCES Type(name)
+  REFERENCES pType(name)
   ON DELETE CASCADE);
