@@ -21,7 +21,7 @@
         <!-- NAVIGATION -->
         <div id="nav">
             <div id="user_container">
-                <img src="../default_profile.jpg" style="width:100px;height:100px;"/>
+                <img src="./default_profile.jpg" style="width:100px;height:100px;"/>
                 <p>&nbsp;</p>
             </div>
             <div onclick="location.href='./php/myaccount.php'" class="nav-item">
