@@ -1,6 +1,6 @@
 body {
     margin: auto;
-    font-family: -apple-system, 'Segoe UI', Roboto;
+    font-family: 'Segoe UI';
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
@@ -23,6 +23,7 @@ body {
 }
 
 p {
+    font-size: 12px;
     margin: 0;
 }
 
@@ -79,6 +80,9 @@ p {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+}
+
+#welcome p {
     font-size: 30px;
     font-size: 3.5vw;
     text-align: center;
@@ -86,26 +90,6 @@ p {
 
 #content {
     padding: 5px;
-}
-
-#myaccount {
-    display: inherit;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    text-align: center;
-}
-
-#mypokemon {
-    display: inherit;
-}
-
-#storage {
-    display: inherit;
-}
-
-#pokedex {
-    display: inherit;
 }
 
 #user_container {

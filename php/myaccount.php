@@ -3,6 +3,7 @@
 <head>
 
     <link rel="stylesheet" type="text/css" href="../main.css">
+    <link rel="stylesheet" type="text/css" href="../css/myaccount.css">
 
     <script>
         function validateAccForm() {
@@ -57,12 +58,12 @@
         <div id="content">
             <div id="myaccount">
                 <form method="POST" name="accForm" onsubmit="return validateAccForm()" target="_self">
-                    <span>USERNAME</span>
+                    <p>USERNAME</p>
                     <input type="text" name="accUsername" size="10">
-                    <br />
-                    <span>PASSWORD</span>
+                    <br/>
+                    <p>PASSWORD</p>
                     <input type="text" name="accPassword" size="10">
-                    <br /><br />
+                    <br/><br/>
                     <input type="submit" value="Login" name="login">&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="submit" value="Sign up" name="signup">
                 </form>
