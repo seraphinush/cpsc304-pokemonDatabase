@@ -1,18 +1,5 @@
-<?php 
-session_start(); 
-if ($_GET['logout']) {
-	$_SESSION = array();
-	if ($_COOKIE[session_name()]) {
-		setcookie(session_name(), '', time()-42000, '/');
-	}
-	session_destroy();
-	header('Location: myaccount.php');
-}
-?>
 <html>
-
 <head>
-
     <link rel="stylesheet" type="text/css" href="../main.css">
     <link rel="stylesheet" type="text/css" href="../css/myaccount.css">
 
@@ -33,7 +20,6 @@ if ($_GET['logout']) {
             }
         }
     </script>
-
 </head>
 
 <body>
@@ -68,13 +54,6 @@ if ($_GET['logout']) {
         <!-- CONTENT -->
         <div id="content">
             <div id="myaccount">
-				<?php if (isset(_SESSION['ID']) {?>
-					<p> You are currently logged in as: <p>
-					<?php echo _SESSION['ID'];?>
-					<br/><br/>
-					<a href="myaccount.php?logout=1">Logout</a>
-                </form>
-				<?php } else {?>
                 <form method="POST" name="accForm" onsubmit="return validateAccForm()" target="_self">
                     <p>USERNAME</p>
                     <input type="text" name="accUsername" size="10">
@@ -85,7 +64,6 @@ if ($_GET['logout']) {
                     <input type="submit" value="LOGIN" name="login">&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="submit" value="SIGN UP" name="signup">
                 </form>
-				<?php }?>
                 <br />
                 <p id="loginresult">
                     &nbsp;
@@ -103,10 +81,6 @@ if ($_GET['logout']) {
                                 if ($result) {
                                     echo "<font color='56B4E9'>Successful.</font>";
 									$result = OCI_Fetch_Array($result, OCI_BOTH);
-									echo "Welcome";
-									echo "<tr><td>" . $result["ID"] . "</td><td>" . $result["NAME"] . "</td><td>" . $result["PASSWORD"] . "</td></tr>";
-									$_SESSION["ID"] = $result["ID"];
-									$_SESSION["NAME"] = $result["NAME"];
                                 } else {
                                     echo "<font color='E69F00'>Unsuccessful.</font>";
                                 }

@@ -71,6 +71,8 @@
     display: block;
     max-width: inherit;
     background-color: #ffecce;
+    text-transform: uppercase;
+    text-align: center;
     cursor: pointer;
     margin: 10px 0px;
     padding: 5px;
@@ -88,10 +90,6 @@
     color: #ffffffff;
 }
 
-.pokemon-list-item-right {
-    text-transform: capitalize;
-}
-
 /*---- RIGHT SIDE ----*/
 #pokedex-right {
     min-width: 50%;
@@ -101,4 +99,12 @@
 
 #pokedex-right::-webkit-scrollbar { 
     display: none;
+}
+
+#hidden {
+    display: none;
+}
+
+#pokedex-entry {
+    display: block;
 }
