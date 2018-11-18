@@ -1,5 +1,5 @@
 CREATE TABLE Move_Species(
-Move_name 			CHAR(10), 
+Move_name 			CHAR(20), 
 Species_name 		CHAR(10),
 PRIMARY KEY (Move_name, Species_name),
 FOREIGN KEY (Move_name)

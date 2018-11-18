@@ -15,9 +15,9 @@ INSERT INTO Evolutions(PreEvolution_name,PostEvolution_name,minLevelToEvolve) VA
 INSERT INTO Evolutions(PreEvolution_name,PostEvolution_name,minLevelToEvolve) VALUES ('Ekans','Arbok',22);
 INSERT INTO Evolutions(PreEvolution_name,PostEvolution_name,minLevelToEvolve) VALUES ('Pikachu','Raichu',0);
 INSERT INTO Evolutions(PreEvolution_name,PostEvolution_name,minLevelToEvolve) VALUES ('Sandshrew','Sandslash',22);
-INSERT INTO Evolutions(PreEvolution_name,PostEvolution_name,minLevelToEvolve) VALUES ('Nidoran-F','Nidorina',16);
+INSERT INTO Evolutions(PreEvolution_name,PostEvolution_name,minLevelToEvolve) VALUES ('Nidoran(F)','Nidorina',16);
 INSERT INTO Evolutions(PreEvolution_name,PostEvolution_name,minLevelToEvolve) VALUES ('Nidorina','Nidoqueen',0);
-INSERT INTO Evolutions(PreEvolution_name,PostEvolution_name,minLevelToEvolve) VALUES ('Nidoran-M','Nidorino',16);
+INSERT INTO Evolutions(PreEvolution_name,PostEvolution_name,minLevelToEvolve) VALUES ('Nidoran(M)','Nidorino',16);
 INSERT INTO Evolutions(PreEvolution_name,PostEvolution_name,minLevelToEvolve) VALUES ('Nidorino','Nidoking',0);
 INSERT INTO Evolutions(PreEvolution_name,PostEvolution_name,minLevelToEvolve) VALUES ('Clefairy','Clefable',0);
 INSERT INTO Evolutions(PreEvolution_name,PostEvolution_name,minLevelToEvolve) VALUES ('Vulpix','Ninetales',0);
