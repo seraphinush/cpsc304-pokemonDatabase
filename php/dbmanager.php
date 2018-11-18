@@ -64,6 +64,7 @@ final class DBManager
 			}
 			OCICommit($db_conn);
 			$this->disconnect($db_conn);
+			return $statement;
 		} else {
 			$this->printErrors();
 		}
