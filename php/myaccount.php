@@ -12,7 +12,7 @@
                 alert("Fields cannot be empty.");
                 document.getElementById("loginresult").innerHTML = "Fields cannot be empty.";
                 return false;
-            } else if (myPass.length < 5) {
+            } else if (myPass.length < 1) {
                 alert("Passwords must be longer than 4 characters.");
                 document.getElementById("loginresult").innerHTML = "Passwords must be longer than 4 characters.";
                 return false;
