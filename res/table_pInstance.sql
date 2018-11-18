@@ -5,7 +5,7 @@ exp 				INTEGER,
 pokelevel 			INTEGER,
 weight 				DECIMAL(18,2),
 height 				DECIMAL(18,2),
-nickName 			CHAR(10),
+nickName 			CHAR(15),
 PRIMARY KEY (id),
 FOREIGN KEY (Species_name)
   REFERENCES Species(name)
