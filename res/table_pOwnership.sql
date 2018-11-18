@@ -1,7 +1,7 @@
 CREATE TABLE PokemonOwnership (
 Pokemon_id		INTEGER, 
 Trainer_id		INTEGER,
-is_stored     	BOOLEAN,
+is_stored     	INTEGER,
 PRIMARY KEY (Pokemon_id, Trainer_id),
 FOREIGN KEY (Pokemon_id)
   REFERENCES PokemonInstance(id)
