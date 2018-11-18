@@ -1,14 +1,11 @@
+/*---- LEFT SIDE ----*/
 #pokedex-left {
     display: flex;
-    flex-direction: column;
-    min-width: 100px;
-    max-width: 250px;
+    max-width: 500px;
     height: inherit;
     max-height: 80%;
     float: left;
-    border-right: 3px solid #ffecce;
     margin: 0px 15px 0px 15px;
-    padding-right: 10px;
     overflow: hidden;
 }
 
@@ -16,7 +13,53 @@
     display: none;
 }
 
+#pokedex-left > div {
+    flex: 1;
+  }
+
+/*---- TYPE LIST ----*/
+#type-list {
+    display: block;
+    max-width: 250px;
+    border-right: 3px solid #ffecce;
+    padding: 0px 10px 0px 0px;
+    overflow: scroll;
+}
+
+#type-list::-webkit-scrollbar { 
+    display: none;
+}
+
+.type-list-item {
+    display: block;
+    max-width: inherit;
+    background-color: #ffecce;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    margin: 10px 0px;
+    padding: 5px;
+}
+
+.type-list-item:hover {
+    -webkit-transition-duration: 0.4s;
+    -moz-transition-duration: 0.4s;
+    -o-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    background-color: #ffffff88;
+}
+
+.type-list-item:active {
+    color: #ffffffff;
+}
+
+/*---- POKEDEX LIST ----*/
 #pokedex-list {
+    display: block;
+    min-width: 100px;
+    max-width: 250px;
+    border-right: 3px solid #ffecce;
+    padding: 0px 10px;
     overflow: scroll;
 }
 
@@ -45,6 +88,11 @@
     color: #ffffffff;
 }
 
+.pokemon-list-item-right {
+    text-transform: capitalize;
+}
+
+/*---- RIGHT SIDE ----*/
 #pokedex-right {
     min-width: 50%;
     float: left;
