@@ -1,3 +1,14 @@
+<?php 
+session_start(); 
+if (isset($_GET['logout'])) {
+	$_SESSION = array();
+	if ($_COOKIE[session_name()]) {
+		setcookie(session_name(), '', time()-42000, '/');
+	}
+	session_destroy();
+	header('Location: myaccount.php');
+}
+?>
 <html>
 
 <head>
@@ -66,6 +77,7 @@
                     <br/><br/>
                     <input type="submit" value="LOGIN" name="login">&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="submit" value="SIGN UP" name="signup">
+					<a href="myaccount.php?logout=1">Logout</a>
                 </form>
                 <br />
                 <p id="loginresult">
@@ -83,6 +95,12 @@
                                 $result = $manager->executePlainSQL("SELECT id, name, password FROM Trainer WHERE name='$name' AND password='$pass'");
                                 if ($result) {
                                     echo "<font color='56B4E9'>Successful.</font>";
+									$result = OCI_Fetch_Array($result, OCI_BOTH));
+									echo "Welcome"
+									echo "<tr><td>" . $result["ID"] . "</td><td>" . $result["NAME"] . "</td><td>" . $result["PASSWORD"] . "</td></tr>";
+									$_SESSION["ID"] = $result["ID"];
+									$_SESSION["NAME"] = $result["NAME"];
+								}
                                 } else {
                                     echo "<font color='E69F00'>Unsuccessful.</font>";
                                 }
