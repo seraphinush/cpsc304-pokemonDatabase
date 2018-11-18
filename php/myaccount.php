@@ -1,7 +1,6 @@
 <?php 
+ini_set('session.save_path', getcwd() . "/../../../public_html_sessions");
 $start = session_start(); 
-echo "hi" . $start;
-echo session_id();
 if ($_GET['logout']) {
 	$_SESSION = array();
 	if ($_COOKIE[session_name()]) {
@@ -94,7 +93,6 @@ if ($_GET['logout']) {
                     <?php
                         include './dbmanager.php';
                         $manager = DBManager::Instance();
-echo "session ID: " . session_id();
                         
                         // ---- login ----
                         if (array_key_exists('login', $_POST)) {
@@ -108,10 +106,8 @@ echo "session ID: " . session_id();
 									$result = OCI_Fetch_Array($result, OCI_BOTH);
 									$_SESSION['ID'] = $result["ID"];
 									$_SESSION['NAME'] = $result["NAME"];
-									echo "Welcome";
-									echo "<tr><td>" . $result["ID"] . "</td><td>" . $result["NAME"] . "</td><td>" . $result["PASSWORD"] . "</td></tr>";
-echo "</br>";
-echo "<tr><td>" . $_SESSION['ID'] . "</td><td>" . $_SESSION['NAME'] . "</td><td>";
+	header('Location: myaccount.php');
+									
                                 } else {
                                     echo "<font color='E69F00'>Unsuccessful.</font>";
                                 }

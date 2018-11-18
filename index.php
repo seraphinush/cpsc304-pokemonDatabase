@@ -1,10 +1,6 @@
 <?php 
-/*try {
+ini_set('session.save_path', getcwd() . "/../../public_html_sessions");
 $start = session_start(); 
-} catch (Exception $e) {
-                                echo htmlentities($e['message']);
-                            }
-echo $start . session_id() . session_status();*/
 ?>
 <html>
 
