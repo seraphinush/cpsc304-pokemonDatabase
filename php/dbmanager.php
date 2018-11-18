@@ -6,7 +6,6 @@
 
 final class DBManager
 {
-	private $loggedID;
 	/*
 	* Call this method to access Singleton. Like this:
 	* $yourVariable = DBManager::Instance();
@@ -39,17 +38,7 @@ final class DBManager
 		$e = OCI_Error(); // For OCILogon errors pass no handle
 		echo htmlentities($e['message']);
 	}
-/*
-	public setLoggedID($id) {
-		global $loggedID;
-		$this->loggedID = $id;
-	}
 
-	public getLoggedID($id) {
-		global $loggedID;
-		$this->loggedID = $id;
-	}
-*/
 	function executeBoundSQL($cmdstr, $list)
 	{
 		$db_conn = $this->connect();
