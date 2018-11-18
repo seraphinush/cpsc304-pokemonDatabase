@@ -71,6 +71,8 @@
     display: block;
     max-width: inherit;
     background-color: #ffecce;
+    text-transform: uppercase;
+    text-align: center;
     cursor: pointer;
     margin: 10px 0px;
     padding: 5px;
