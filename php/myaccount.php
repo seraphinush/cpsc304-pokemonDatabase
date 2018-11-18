@@ -1,5 +1,5 @@
 <?php 
-ini_set('session.save_path', getcwd() . "/../../../public_html_sessions");
+ini_set('session.save_path', getcwd() . "/../../public_html_sessions");
 $start = session_start(); 
 if ($_GET['logout']) {
 	$_SESSION = array();
@@ -7,13 +7,11 @@ if ($_GET['logout']) {
 		setcookie(session_name(), '', time()-42000, '/');
 	}
 	session_destroy();
-	header('Location: myaccount.php');
+	header('refresh:5; Location:./myaccount.php');
 }
 ?>
 <html>
-
 <head>
-
     <link rel="stylesheet" type="text/css" href="../main.css">
     <link rel="stylesheet" type="text/css" href="../css/myaccount.css">
 
@@ -34,11 +32,9 @@ if ($_GET['logout']) {
             }
         }
     </script>
-
 </head>
 
 <body>
-
     <div id="container">
 
         <!-- HEADER -->
@@ -106,8 +102,7 @@ if ($_GET['logout']) {
 									$result = OCI_Fetch_Array($result, OCI_BOTH);
 									$_SESSION['ID'] = $result["ID"];
 									$_SESSION['NAME'] = $result["NAME"];
-	header('Location: myaccount.php');
-									
+	                                header('refresh:5; Location:./myaccount.php');
                                 } else {
                                     echo "<font color='E69F00'>Unsuccessful.</font>";
                                 }
@@ -128,9 +123,9 @@ if ($_GET['logout']) {
                                 } else {
                                     $maxId++;
                                 }
-		                    $tmpid = $maxId;
-		                    $tmpUsername = $_POST['accUsername'];
-		                    $tmpPassword = $_POST['accPassword'];
+                                $tmpid = $maxId;
+                                $tmpUsername = $_POST['accUsername'];
+                                $tmpPassword = $_POST['accPassword'];
                                 $result = $manager->executePlainSQL("insert into Trainer values ('$tmpid','$tmpUsername','$tmpPassword')");
                                 if ($result) {
                                     echo "<font color='56B4E9'>Successful.</font>";
