@@ -64,8 +64,8 @@
                     <p>PASSWORD</p>
                     <input type="text" name="accPassword" size="10">
                     <br/><br/>
-                    <input type="submit" value="Login" name="login">&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="submit" value="Sign up" name="signup">
+                    <input type="submit" value="LOGIN" name="login">&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="submit" value="SIGN UP" name="signup">
                 </form>
                 <br />
                 <p id="loginresult">
@@ -84,7 +84,7 @@
                                 if ($result && $success) {
                                     echo "<font color='56B4E9'>Successful.</font>";
                                 } else {
-                                    echo "<font color='E69F00'>Unsuccessful.</font>";;
+                                    echo "<font color='E69F00'>Unsuccessful.</font>";
                                 }
                                 OCICommit($db_conn);
                             } catch (Exception $e) {
@@ -115,7 +115,7 @@
                                 if ($result && $success) {
                                     echo "<font color='56B4E9'>Successful.</font>";
                                 } else {
-                                    echo "<font color='E69F00'>Name is already taken.</font>";;
+                                    echo "<font color='E69F00'>Name is already taken.</font>";
                                 }
                             } catch (Exception $e) {
                                 echo htmlentities($e['message']);

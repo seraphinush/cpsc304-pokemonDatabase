@@ -8,7 +8,7 @@
 
 #myaccount form p {
     font-size: 12px;
-    margin: 0px 0px 0px -2px;
+    margin: 0px 0px 0px -3px;
     padding: 0;
 }
 
@@ -16,4 +16,29 @@
     font-size: 12px;
     margin: 0;
     padding: 0;
+}
+
+input[type=submit] {
+    font-family: 'Segoe UI';
+    font-size: 12px;
+    text-decoration: none;
+    background-color: #ffecce;
+    border: none;
+    padding: 7px 12px;
+    cursor: pointer;
+}
+
+input[type=text] {
+    font-family: 'Segoe UI';
+    font-size: 12px;
+    text-decoration: none;
+    background-color: #ffffff00;
+}
+
+input:hover {
+    background-color: #ffffff88;
+}
+
+input:active {
+    color: #ffffffff;
 }
