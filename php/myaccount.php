@@ -81,7 +81,7 @@
                             $result;
                             try {
                                 $result = $manager->executePlainSQL("SELECT id, name, password FROM Trainer WHERE name='$name' AND password='$pass'");
-                                if ($result && $success) {
+                                if ($result) {
                                     echo "<font color='56B4E9'>Successful.</font>";
                                 } else {
                                     echo "<font color='E69F00'>Unsuccessful.</font>";
@@ -112,7 +112,7 @@
                                     $tuple,
                                 );
                                 $result = $manager->executeBoundSQL("insert into Trainer values (:bind1, :bind2, :bind3)", $alltuples);
-                                if ($result && $success) {
+                                if ($result) {
                                     echo "<font color='56B4E9'>Successful.</font>";
                                 } else {
                                     echo "<font color='E69F00'>Name is already taken.</font>";
