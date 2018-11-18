@@ -3,9 +3,6 @@
 * Singleton Database Manager
 *
 */
-function echothingy() {
-	return "thingy";
-}
 
 final class DBManager
 {

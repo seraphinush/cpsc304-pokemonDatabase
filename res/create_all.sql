@@ -12,4 +12,5 @@ START table_evolutions;
 START table_type_biome;
 START table_strength;
 START table_biome_location;
+START table_species_biome;
 START table_pOwnership;
