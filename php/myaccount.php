@@ -128,15 +128,10 @@ if ($_GET['logout']) {
                                 } else {
                                     $maxId++;
                                 }
-                                $tuple = array(
-                                    ":bind1" => $maxId,
-                                    ":bind2" => $_POST['accUsername'],
-                                    ":bind3" => $_POST['accPassword'],
-                                );
-                                $alltuples = array(
-                                    $tuple,
-                                );
-                                $result = $manager->executeBoundSQL("insert into Trainer values (:bind1, :bind2, :bind3)", $alltuples);
+		                    $tmpid = $maxId;
+		                    $tmpUsername = $_POST['accUsername'];
+		                    $tmpPassword = $_POST['accPassword'];
+                                $result = $manager->executePlainSQL("insert into Trainer values ('$tmpid','$tmpUsername','$tmpPassword')");
                                 if ($result) {
                                     echo "<font color='56B4E9'>Successful.</font>";
                                 } else {
