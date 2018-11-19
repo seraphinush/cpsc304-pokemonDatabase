@@ -1,5 +1,5 @@
 <?php
-	ini_set('session.save_path', getcwd() . "/../../public_html_sessions");
+	ini_set('session.save_path', getcwd() . "/../../../public_html_sessions");
 	$start = session_start(); 
 ?>
 <html>
@@ -45,24 +45,11 @@
         <!-- CONTENT -->
         <div id="content">
             <div id="storage">
-                <p>STORAGE STUB</p>
-            </div>
-        </div>
-
-    </div>
-
-
-
-</body>
-
-</html>
-
-<?php
+                <?php
 include 'dbmanager.php';
 $manager = DBManager::Instance();
 
 function printResult($result) { //prints results from a select statement
-	echo "<br>Got data from table tab1:<br>";
 	echo "<table>";
 	echo "<tr><th>ID</th><th>Name</th></tr>";
 
@@ -75,10 +62,9 @@ function printResult($result) { //prints results from a select statement
 
 	if (isset($_SESSION['ID'])) {
 		try {
-$result;
-			//$result = $manager->executePlainSQL("SELECT I.ID, I.nickname FROM PokemonInstance I, PokemonOwnership O WHERE I.id = O.Pokemon_id AND O.Trainer_id = '$_SESSION["ID"]' AND O.is_stored = 1");
+			$tmpid = $_SESSION['ID'];
+			$result = $manager->executePlainSQL("SELECT I.ID, I.nickname FROM PokemonInstance I, PokemonOwnership O WHERE I.id = O.Pokemon_id AND O.Trainer_id = '$tmpid' AND O.is_stored = 1");
 			if ($result) {
-				$result = OCI_Fetch_Array($result, OCI_BOTH);
 				printResult($result);
 			} else {
 				echo "<font color='E69F00'>Unsuccessful.</font>";
@@ -91,3 +77,13 @@ $result;
 		echo "Please sign in or create an account to see your stored pokemon!";
 	}
 ?>
+            </div>
+        </div>
+
+    </div>
+
+
+
+</body>
+
+</html>
