@@ -97,11 +97,11 @@
                         echo "Total Pokemon of this Type: " . $result[0] . "</br></br>";
                         $result = $manager->executePlainSQL("SELECT I.ID, I.nickname FROM PokemonInstance I, PokemonOwnership O, Species_type T WHERE I.id = O.Pokemon_id AND I.Species_name = T.Species_name AND O.Trainer_id = '$tmpid' AND O.is_stored = 1 AND T.Type_name = '$type'");
                         printResult($result);
-		     } else if(isset($_SESSION['ID']) && array_key_exists('submitwithdraw', $_GET)) {
-				$tmpid = $_POST['withdrawID'];
-				$manager->executePlainSQL("UPDATE pokemonOwnership SET is_stored = 0 WHERE pokemon_id = '$tmpid'");
-	                        header('Location:./storage.php');
-			} else {
+                    } else if(isset($_SESSION['ID']) && array_key_exists('submitwithdraw', $_GET)) {
+                        $tmpid = $_GET['withdrawID'];
+                        $manager->executePlainSQL("UPDATE pokemonOwnership SET is_stored = 0 WHERE pokemon_id = '$tmpid'");
+                                    header('Location:./storage.php');
+                    } else {
                         echo "Please sign in or create an account to see your stored pokemon!";
                     }
 			        if (isset($_SESSION['ID'])) {
