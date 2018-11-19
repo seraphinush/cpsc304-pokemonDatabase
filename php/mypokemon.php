@@ -73,6 +73,7 @@
         <!-- CONTENT -->
         <div id="content">
             <div id="mypokemon-container">
+		<?php if (isset($_SESSION['ID'])) { ?>
                 <div id="form">
                     <form method="POST" name="addForm" target="_self">
                         <p>POKEMON SPECIES : <input type="text" name="addSpecies" size="10"></p>
@@ -82,9 +83,9 @@
                         <p>HEIGHT : <input type="text" name="addHeight" size="10"></p>
                         <p>EXPERIENCE : <input type="text" name="addExperience" size="10"></p>
                         <input type="submit" value="ADD NEW POKEMON" name="addAction"><br/>
-                        <p>POKEMON NICKNAME TO STORE : <input type="text" name="storeID" size="10"></p>
+                        <p>POKEMON ID TO STORE : <input type="text" name="storeID" size="10"></p>
                         <input type="submit" value="STORE" name="store"><br/>
-                        <p>POKEMON NICKNAME TO DELETE : <input type="text" name="deleteID" size="10"></p>
+                        <p>POKEMON ID TO DELETE : <input type="text" name="deleteID" size="10"></p>
                         <input type="submit" value="DELETE" name="delete"><br/>
                     </form>
                 </div>
@@ -131,7 +132,10 @@
                             echo htmlentities($e['message']);
                         }
                     }
-                    ?>
+		 } else {
+		echo "Please sign in or create an account to see your pokemon!";
+		} 
+		?>
                 </div>
             </div>
         </div>
