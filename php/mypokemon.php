@@ -92,12 +92,12 @@
                     <?php
                         // ---- PHP HERE ----
 			if (array_key_exists('addAction', $_POST)) {
-				$tmpSpecies = $_GET["addSpecies"];
-				$tmpExp = $_GET["addExperience"];
-				$tmpLevel = $_GET["addLevel"];
-				$tmpWeight = $_GET["addWeight"];
-				$tmpHeight = $_GET["addHeight"];
-				$tmpNickname = $_GET["addNickname"];
+				$tmpSpecies = $_POST["addSpecies"];
+				$tmpExp = $_POST["addExperience"];
+				$tmpLevel = $_POST["addLevel"];
+				$tmpWeight = $_POST["addWeight"];
+				$tmpHeight = $_POST["addHeight"];
+				$tmpNickname = $_POST["addNickname"];
 				$maxId = $manager->executePlainSQL("SELECT MAX(id) FROM pokemonInstance"); // force-make unique id
                                 $maxId = OCI_Fetch_Array($maxId, OCI_BOTH);
                                 $maxId = $maxId[0];
@@ -111,10 +111,10 @@
 				$manager->executePlainSQL("INSERT INTO pokemonInstance (id, Species_name, exp, pokelevel, Weight, Height, Nickname) Values ('$tmpid','$tmpSpecies','$tmpExp','$tmpLevel','$tmpWeight','$tmpHeight','$tmpNickname')");
 				$manager->executePlainSQL("INSERT INTO pokemonOwnership (Pokemon_id, Trainer_id, is_Stored) Values ('$tmpid','$tmpTid',0)");
 			} else if (array_key_exists('store', $_POST)) {
-				$tmpid = $_GET['storeID'];
+				$tmpid = $_POST['storeID'];
 				$manager->executePlainSQL("UPDATE pokemonOwnership SET is_stored = 1 WHERE pokemon_id = '$tmpid'");
 			} else if (array_key_exists('delete', $_POST)) {
-				$tmpid = $_GET['deleteID'];
+				$tmpid = $_POST['deleteID'];
 				$manager->executePlainSQL("DELETE FROM pokemonInstance WHERE id = '$tmpid'");
 			}
                         if (isset($_SESSION['ID'])) {
