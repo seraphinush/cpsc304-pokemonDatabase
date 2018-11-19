@@ -1,9 +1,8 @@
 /*---- POKEDEX CONTAINER ----*/
 #pokedex-container {
     display: flex;
-    max-width: 80%;
-    height: inherit;
-    max-height: 80%;
+    width: 100%;
+    height: 80%;
     margin: 0px 15px 0px 15px;
     overflow: hidden;
 }
@@ -96,7 +95,8 @@
 
 #info-right {
     display: block;
-    max-width: 50%;
+    float: right;
+    width: 100%;
     max-height: inherit;
     margin: 10px 15px 0px 15px;
     padding: 0px 10px 0px 0px;

@@ -50,6 +50,7 @@
             echo "<p>HEIGHT : ".$row["MINHEIGHT"]."~".$row["MAXHEIGHT"]."m</p><br/>";
             echo "<p>WEIGHT : ".$row["MINWEIGHT"]."~".$row["MAXWEIGHT"]."g</p><br/>";
         }
+
     }
 ?>
 
@@ -122,20 +123,29 @@
                     <div id="pokedex-info">
                         <?php
                             $name;
+                            $querySpecies = false;
                             if (array_key_exists('submittname', $_GET)) {
-                                if (true) {
-                                    $name = $_GET["searchName"];
-                                    $name = ucfirst($name);
-                                    $result = $manager->executePlainSQL("SELECT * FROM Species_Type where type_name='$name'");
-                                    printTypeInfoResult($result);
-                                } else {
-                                    echo "ERROR";
-                                }
+                                $name = $_GET["searchName"];
+                                $name = ucfirst($name);
+                                $result = $manager->executePlainSQL("SELECT * FROM Species_Type where type_name='$name'");
+                                printTypeInfoResult($result);
+
                             } else if (array_key_exists('submitsname', $_GET)) {
+                                $querySpecies = true;
                                 $name = $_GET['searchName'];
                                 $name = ucfirst($name);
                                 $result = $manager->executePlainSQL("SELECT * FROM Species WHERE name='$name'");
-                                printPokemonInfoResult($result);
+                                if ($result && $querySpecies) {
+                                    printPokemonInfoResult($result);
+                                    echo "<p>HABITAT BIOME(S) : ";
+                                    $result_2 = $manager->executePlainSQL("SELECT B.name FROM Biome B, Type_Biome TB, Species_Type ST WHERE B.name=TB.Biome_name AND TB.Type_name=ST.Type_name AND ST.Species_name='$name'");
+                                    $row = OCI_Fetch_Array($result_2, OCI_BOTH);
+                                    echo $row["NAME"];
+                                    while ($row = OCI_Fetch_Array($result_2, OCI_BOTH)) {
+                                        echo " | ".$row["NAME"];
+                                    }
+                                    echo "</p><br/>";
+                                }
                             }
                         ?>
                     </div>

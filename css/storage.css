@@ -2,9 +2,11 @@
     font-size: 12;
     text-transform: uppercase;
     display: flex;
+    width: inherit;
+    min-width: 500px;
     height: inherit;
     max-height: 80%;
-    float: left;
+    float: none;
     margin: 0px 15px 0px 15px;
     overflow: hidden;
 }
@@ -13,6 +15,7 @@ table {
     font-family: 'Segoe UI';
     font-size: 12px;
     text-decoration: none;
+    clear: both;
 }
 
 /*---- TYPE LIST ----*/
@@ -20,8 +23,9 @@ table {
     display: block;
     float: right;
     max-width: 100px;
-    border-right: 3px solid #ffecce;
-    padding: 0px 10px 0px 0px;
+    border-left: 3px solid #ffecce;
+    margin-left: 10px;
+    padding: 0px 10px 0px 10px;
     overflow: scroll;
 }
 
