@@ -74,24 +74,64 @@
         <div id="content">
             <div id="mypokemon-container">
                 <div id="form">
-                    <form method="POST" name="addForm" onsubmit="return validateAccForm()" target="_self">
-                        <p>POKEMON NAME : <input type="text" name="addSpecies" size="10"></p>
+                    <form method="POST" name="addForm" target="_self">
+                        <p>POKEMON SPECIES : <input type="text" name="addSpecies" size="10"></p>
                         <p>POKEMON NICKNAME : <input type="text" name="addNickname" size="10"></p>
                         <p>LEVEL : <input type="text" name="addLevel" size="10"></p>
                         <p>WEIGHT : <input type="text" name="addWeight" size="10"></p>
                         <p>HEIGHT : <input type="text" name="addHeight" size="10"></p>
                         <p>EXPERIENCE : <input type="text" name="addExperience" size="10"></p>
-                        <input type="submit" value="ADD NEW POKEMON" name="add"><br/>
+                        <input type="submit" value="ADD NEW POKEMON" name="addAction"><br/>
                         <p>POKEMON NICKNAME TO STORE : <input type="text" name="store" size="10"></p>
                         <input type="submit" value="STORE" name="store"><br/>
                         <p>POKEMON NICKNAME TO DELETE : <input type="text" name="delete" size="10"></p>
-                        <input type="submit" value="STORE" name="store"><br/>
+                        <input type="submit" value="DELETE" name="delete"><br/>
                     </form>
                 </div>
                 <div id="mypokemon-info">
                     <?php
                         // ---- PHP HERE ----
-                        echo "<p>CONTENT STUB</p>";
+			echo "hello";
+			if (array_key_exists('addAction', $_GET)) {
+				echo "Got Here";
+				/*$tmpSpecies = $_GET["addSpecies"];
+				$tmpExp = $_GET["addExperience"];
+				$tmpLevel = $_GET["addLevel"];
+				$tmpWeight = $_GET["addWeight"];
+				$tmpHeight = $_GET["addHeight"];
+				$tmpNickname = $_GET["addNickname"];
+				$maxId = $manager->executePlainSQL("SELECT MAX(id) FROM pokemonInstance"); // force-make unique id
+                                $maxId = OCI_Fetch_Array($maxId, OCI_BOTH);
+                                $maxId = $maxId[0];
+                                if (is_nan($maxId) || $maxId === 0) {
+                                    $maxId = 0;
+                                } else {
+                                    $maxId++;
+                                }
+                                $tmpid = $maxId;
+                            	$tmpTid = $_SESSION['ID'];
+				$manager->executePlainSQL("INSERT INTO pokemonInstance (id, Species_name, exp, pokelevel, Weight, Height, Nickname) Values ('$tmpid','$tmpSpecies','$tmpExp','$tmpLevel','$tmpWeight','$tmpHeight','$tmpNickname')");
+				$manager->executePlainSQL("INSERT INTO pokemonOwnership (Pokemon_id, Trainer_id, is_Stored) Values ('$tmpid','$tmpTid',0)");
+				echo "Finished";*/
+			} else if (array_key_exists('store', $_GET)) {
+				echo "STORE";
+			} else if (array_key_exists('delete', $_GET)) {
+				echo "DELETE";
+			}
+                        if (isset($_SESSION['ID'])) {
+                        try {
+                            $tmpid = $_SESSION['ID'];
+                            $result = $manager->executePlainSQL("SELECT I.ID, I.nickname FROM PokemonInstance I, PokemonOwnership O WHERE I.id = O.Pokemon_id AND O.Trainer_id = '$tmpid' AND O.is_stored = 0");
+                            if ($result) {
+                                printResult($result);
+                            } else {
+                                echo "<font color='E69F00'>Unsuccessful.</font>";
+                            }
+                            OCICommit($db_conn);
+                        } catch (Exception $e) {
+                            echo htmlentities($e['message']);
+                        }
+                    }
                     ?>
                 </div>
             </div>
