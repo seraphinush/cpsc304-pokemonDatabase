@@ -20,8 +20,7 @@ table {
 
 /*---- TYPE LIST ----*/
 #type-list {
-    display: block;
-    float: right;
+    display: inline-block;
     max-width: 100px;
     border-left: 3px solid #ffecce;
     margin-left: 10px;
