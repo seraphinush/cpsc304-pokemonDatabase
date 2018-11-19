@@ -1,5 +1,5 @@
 <?php 
-ini_set('session.save_path', getcwd() . "../../public_sessions_html");
+ini_set('session.save_path', getcwd() . "/../../../public_html_sessions");
 $start = session_start(); 
 if ($_GET['logout']) {
 	$_SESSION = array();
@@ -7,7 +7,7 @@ if ($_GET['logout']) {
 		setcookie(session_name(), '', time()-42000, '/');
 	}
 	session_destroy();
-	header('refresh:5; Location:./myaccount.php');
+	header('Location:./myaccount.php');
 }
 ?>
 <html>
@@ -102,7 +102,7 @@ if ($_GET['logout']) {
 									$result = OCI_Fetch_Array($result, OCI_BOTH);
 									$_SESSION['ID'] = $result["ID"];
 									$_SESSION['NAME'] = $result["NAME"];
-	                                header('refresh:5; Location:./myaccount.php');
+	                                header('Location:./myaccount.php');
                                 } else {
                                     echo "<font color='E69F00'>Unsuccessful.</font>";
                                 }
