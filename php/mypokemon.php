@@ -114,13 +114,13 @@
                             $tmpTid = $_SESSION['ID'];
                             $manager->executePlainSQL("INSERT INTO pokemonInstance (id, Species_name, exp, pokelevel, Weight, Height, Nickname) Values ('$tmpid','$tmpSpecies','$tmpExp','$tmpLevel','$tmpWeight','$tmpHeight','$tmpNickname')");
                             $manager->executePlainSQL("INSERT INTO pokemonOwnership (Pokemon_id, Trainer_id, is_Stored) Values ('$tmpid','$tmpTid',0)");
-                        } else if (array_key_exists('simluate', $_POST)) {
+                        //} else if (array_key_exists('simluate', $_POST)) {
                             //$tmpid = $_POST['pokemonID'];
                             //$manager->executePlainSQL("UPDATE pokemonOwnership SET is_stored = 1 WHERE pokemon_id = '$tmpid'");
-                        } else if (array_key_exists('levelup', $_POST)) {
+                        //} else if (array_key_exists('levelup', $_POST)) {
                             //$tmpid = $_POST['pokemonID'];
                             //$manager->executePlainSQL("UPDATE pokemonOwnership SET is_stored = 1 WHERE pokemon_id = '$tmpid'");
-                        } else if (array_key_exists('evolve', $_POST)) {
+                        //} else if (array_key_exists('evolve', $_POST)) {
                             //$tmpid = $_POST['pokemonID'];
                             //$manager->executePlainSQL("UPDATE pokemonOwnership SET is_stored = 1 WHERE pokemon_id = '$tmpid'");
                         } else if (array_key_exists('store', $_POST)) {

@@ -100,7 +100,7 @@
                     } else if(isset($_SESSION['ID']) && array_key_exists('submitwithdraw', $_GET)) {
                         $tmpid = $_GET['withdrawID'];
                         $manager->executePlainSQL("UPDATE pokemonOwnership SET is_stored = 0 WHERE pokemon_id = '$tmpid'");
-                                    header('Location:./storage.php');
+                        header('Location:./storage.php');
                     } else {
                         echo "Please sign in or create an account to see your stored pokemon!";
                     }
