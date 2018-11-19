@@ -1,5 +1,5 @@
 <?php 
-ini_set('session.save_path', getcwd() . "/../../public_html_sessions");
+ini_set('session.save_path', getcwd() . "../public_html_sessions");
 $start = session_start(); 
 ?>
 <html>

@@ -1,5 +1,5 @@
 <?php 
-ini_set('session.save_path', getcwd() . "../../public_html_sessions");
+ini_set('session.save_path', getcwd() . "../../public_sessions_html");
 $start = session_start(); 
 if ($_GET['logout']) {
 	$_SESSION = array();

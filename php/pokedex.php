@@ -100,7 +100,8 @@
                         <?php
                             echo "run";
                             if (array_key_exists('submittname', $_GET)) {
-                                $result = $manager->executePlainSQL("select * from Species_Type");
+                                $name = $_GET["typeName"];
+                                $result = $manager->executePlainSQL("select * from Species_Type where type_name='$name'");
 		                        printResult($result);
                             }
                         ?>
