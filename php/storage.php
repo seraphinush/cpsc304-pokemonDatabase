@@ -58,6 +58,9 @@
 </html>
 
 <?php
+include 'dbmanager.sql';
+$manager = DBManager::Instance();
+
 function printResult($result) { //prints results from a select statement
 	echo "<br>Got data from table tab1:<br>";
 	echo "<table>";
