@@ -78,8 +78,13 @@
         <!-- NAVIGATION -->
         <div id="nav">
             <div id="user_container">
-                <img src="../default_profile.jpg" style="width:100px;height:100px;"/>
-                <p>&nbsp;</p>
+                <?php if (isset($_SESSION['NAME'])) { ?>
+                    <img src="../default_profile.jpg" style="width:100px;height:100px;"/>
+                    <p>&nbsp;</p>
+                <?php } else { ?>
+                    <img src="../default_pLogin.jpg" style="width:100px;height:100px;"/>
+                    <p><?php $_SESSION['NAME'] ?></p>
+                <?php } ?>
             </div>
             <div onclick="location.href='./myaccount.php'" class="nav-item">
                 <p>MY ACCOUNT</p>

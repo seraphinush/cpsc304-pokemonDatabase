@@ -1,7 +1,7 @@
 /*---- MYPOKEMON CONTAINER ----*/
 #mypokemon-container {
-    display: inherit;
-    position: relative;
+    display: flex;
+    justify-content: space-between;
 }
 
 p {
@@ -10,13 +10,13 @@ p {
     padding: 0;
 }
 
-/*---- LEFT ----*/
-#form {
+/*---- RIGHT CONTAINER ----*/
+#info {
     display: inline-block;
 }
 
-/*---- RIGHT CONTAINER ----*/
-#info {
+/*---- LEFT ----*/
+#form {
     display: inline-block;
 }
 
