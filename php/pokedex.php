@@ -1,4 +1,7 @@
 <?php
+	ini_set('session.save_path', getcwd() . "/../../../public_html_sessions");
+    $start = session_start();
+
     include './dbmanager.php';
     $manager = DBManager::Instance();
 
@@ -78,8 +81,13 @@
         <!-- NAVIGATION -->
         <div id="nav">
             <div id="user_container">
-                <img src="../default_profile.jpg" style="width:100px;height:100px;"/>
-                <p>&nbsp;</p>
+                <?php if (isset($_SESSION['NAME'])) { ?>
+                    <img src="../default_profile.jpg" style="width:100px;height:100px;margin-bottom:5px;"/>
+                    <p>&nbsp;</p>
+                <?php } else { ?>
+                    <img src="../default_pLogin.jpg" style="width:100px;height:100px;margin-bottom:5px;"/>
+                    <p><?php echo session_name(); ?></p>
+                <?php } ?>
             </div>
             <div onclick="location.href='./myaccount.php'" class="nav-item">
                 <p>MY ACCOUNT</p>
