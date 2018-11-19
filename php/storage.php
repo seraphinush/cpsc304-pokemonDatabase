@@ -8,10 +8,10 @@
     function printTypeResult($typeResult) {
         if ($typeResult) {
             while ($row = OCI_Fetch_Array($typeResult, OCI_BOTH)) {
-                $temp;
-                $temp = $row[0];
-                $temp = trim($temp);
-                echo '<div class="type-list-item" onclick="searchQuery(`'.$temp.'`)"><span>'.$temp.'</span></div>';
+                $temp_1;
+                $temp_1 = $row["NAME"];
+                $temp_2 = $row["COUNTED"];
+                echo '<div class="type-list-item" onclick="searchQuery(`'.$temp_1.'`)"><span>'.$temp_1.' ('.$temp_2.')</span></div>';
             }
         }
     }
@@ -111,7 +111,8 @@
                         <div id="type-list">
                             <?php
                                 $result;
-                                $result = $manager->executePlainSQL("SELECT * FROM pType");
+                                $tmpid = $_SESSION['ID'];
+                                $result = $manager->executePlainSQL("SELECT name, COALESCE (num,0) AS COUNTED From pType LEFT JOIN (SELECT ST.Type_name, COUNT(*) as num FROM PokemonOwnership O, PokemonInstance I, Species_Type ST WHERE O.Pokemon_id = I.id AND O.is_stored = 1 AND I.Species_name = ST.Species_name AND O.Trainer_id = $tmpid GROUP BY ST.Type_name) ON Type_name = name");
                                 printTypeResult($result);
                             ?>
                         </div>
