@@ -107,7 +107,12 @@
                                 <input type="text" name="searchName" size="10">
                                 <input type="submit" value="SEARCH TYPE" name="submittname">
                             </form>
+                            <form method="GET" id="withdraw" name="withdrawForm" target="_self">
+                                <input type="text" name="withdrawName" size="10">
+                                <input type="submit" value="WITHDRAW" name="submitwithdraw">
+                            </form>
                         </div>
+                        
                         <div id="type-list">
                             <?php
                                 $result;
