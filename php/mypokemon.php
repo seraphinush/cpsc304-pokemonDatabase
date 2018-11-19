@@ -85,9 +85,9 @@
                             <input type="submit" value="ADD NEW POKEMON" name="addAction">
                             <br/><br/>
                             <p>POKEMON ID TO : <input type="text" name="pokemonID" size="10"></p>
-                            <input type="submit" value="SIMULATE BATTLE" name="simulate"><br/>
+                            <!--<input type="submit" value="SIMULATE BATTLE" name="simulate"><br/>
                             <input type="submit" value="LEVEL UP" name="levelup"><br/>
-                            <input type="submit" value="EVOLVE" name="evolve"><br/>
+                            <input type="submit" value="EVOLVE" name="evolve"><br/>-->
                             <input type="submit" value="STORE" name="store"><br/>
                             <input type="submit" value="DELETE" name="delete"><br/>
                         </form>
