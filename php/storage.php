@@ -1,5 +1,5 @@
 <?php
-	ini_set('session.save_path', getcwd() . "../../public_sessions_html");
+	ini_set('session.save_path', getcwd() . "/../../public_html_sessions");
 	$start = session_start(); 
 ?>
 <html>
@@ -58,7 +58,7 @@
 </html>
 
 <?php
-include 'dbmanager.sql';
+include 'dbmanager.php';
 $manager = DBManager::Instance();
 
 function printResult($result) { //prints results from a select statement
@@ -73,9 +73,10 @@ function printResult($result) { //prints results from a select statement
 
 }
 
-	if (isset($_SESSION['ID']) {
+	if (isset($_SESSION['ID'])) {
 		try {
-			$result = $manager->executePlainSQL("SELECT I.ID, I.nickname FROM PokemonInstance I, PokemonOwnership O WHERE I.id = O.Pokemon_id AND O.Trainer_id = '$_SESSION['ID']' AND O.is_stored = 1");
+$result;
+			//$result = $manager->executePlainSQL("SELECT I.ID, I.nickname FROM PokemonInstance I, PokemonOwnership O WHERE I.id = O.Pokemon_id AND O.Trainer_id = '$_SESSION["ID"]' AND O.is_stored = 1");
 			if ($result) {
 				$result = OCI_Fetch_Array($result, OCI_BOTH);
 				printResult($result);
