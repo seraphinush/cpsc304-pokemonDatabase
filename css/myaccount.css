@@ -14,7 +14,7 @@
 
 #myaccount p {
     font-size: 12px;
-    margin: 0;
+    margin: 0px 0px 0px -4px;
     padding: 0;
 }
 
@@ -34,6 +34,17 @@ input[type=text] {
     font-size: 12px;
     text-decoration: none;
     background-color: #ffffff00;
+}
+
+input[type=none] {
+    font-family: 'Segoe UI';
+    font-size: 12px;
+    text-decoration: none;
+    text-align: center;
+    background-color: #56B4E9;
+    border: none;
+    padding: 7px 12px;
+    cursor: pointer;
 }
 
 input:hover {

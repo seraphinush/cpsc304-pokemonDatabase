@@ -8,10 +8,10 @@
     function printTypeResult($typeResult) {
         if ($typeResult) {
             while ($row = OCI_Fetch_Array($typeResult, OCI_BOTH)) {
-                $temp;
-                $temp = $row[0];
-                $temp = trim($temp);
-                echo '<div class="type-list-item" onclick="searchQuery(`'.$temp.'`)"><span>'.$temp.'</span></div>';
+                $temp_1;
+                $temp_1 = $row["NAME"];
+                $temp_2 = $row["COUNTED"];
+                echo '<div class="type-list-item" onclick="searchQuery(`'.$temp_1.'`)"><span>'.$temp_1.' ('.$temp_2.')</span></div>';
             }
         }
     }
@@ -76,8 +76,8 @@
                         try {
                             $tmpid = $_SESSION['ID'];
                             $result = $manager->executePlainSQL("SELECT COUNT(*) FROM PokemonInstance I, PokemonOwnership O WHERE I.id = O.Pokemon_id AND O.Trainer_id = '$tmpid' AND O.is_stored = 1");
-				$result = OCI_Fetch_Array($result, OCI_BOTH);
-				echo "Total Pokemon in Storage: " . $result[0] . "</br></br>";
+				            $result = OCI_Fetch_Array($result, OCI_BOTH);
+                            echo "Total Pokemon in Storage: " . $result[0] . "</br></br>";
                             $result = $manager->executePlainSQL("SELECT I.ID, I.nickname FROM PokemonInstance I, PokemonOwnership O WHERE I.id = O.Pokemon_id AND O.Trainer_id = '$tmpid' AND O.is_stored = 1");
                             if ($result) {
                                 printResult($result);
@@ -89,34 +89,36 @@
                             echo htmlentities($e['message']);
                         }
                     } else if (isset($_SESSION['ID']) && array_key_exists('submittname', $_GET)) {
-                                    $type = $_GET["searchName"];
-                                    $type = ucfirst($type);
-                            	$tmpid = $_SESSION['ID'];
-				$result = $manager->executePlainSQL("SELECT COUNT(*) FROM PokemonInstance I, PokemonOwnership O, Species_type T WHERE I.id = O.Pokemon_id AND I.Species_name = T.Species_name AND O.Trainer_id = '$tmpid' AND O.is_stored = 1 AND T.Type_name = '$type'");
-				$result = OCI_Fetch_Array($result, OCI_BOTH);
-				echo "Total Pokemon of this Type: " . $result[0] . "</br></br>";
-                                    $result = $manager->executePlainSQL("SELECT I.ID, I.nickname FROM PokemonInstance I, PokemonOwnership O, Species_type T WHERE I.id = O.Pokemon_id AND I.Species_name = T.Species_name AND O.Trainer_id = '$tmpid' AND O.is_stored = 1 AND T.Type_name = '$type'");
-                                    printResult($result);
-		} else {
+                        $type = $_GET["searchName"];
+                        $type = ucfirst($type);
+                        $tmpid = $_SESSION['ID'];
+                        $result = $manager->executePlainSQL("SELECT COUNT(*) FROM PokemonInstance I, PokemonOwnership O, Species_type T WHERE I.id = O.Pokemon_id AND I.Species_name = T.Species_name AND O.Trainer_id = '$tmpid' AND O.is_stored = 1 AND T.Type_name = '$type'");
+                        $result = OCI_Fetch_Array($result, OCI_BOTH);
+                        echo "Total Pokemon of this Type: " . $result[0] . "</br></br>";
+                        $result = $manager->executePlainSQL("SELECT I.ID, I.nickname FROM PokemonInstance I, PokemonOwnership O, Species_type T WHERE I.id = O.Pokemon_id AND I.Species_name = T.Species_name AND O.Trainer_id = '$tmpid' AND O.is_stored = 1 AND T.Type_name = '$type'");
+                        printResult($result);
+		            } else {
                         echo "Please sign in or create an account to see your stored pokemon!";
                     }
-			if (isset($_SESSION['ID'])) {?>
-				<div id="forms">
-		            <form method="GET" id="search" name="searchForm" target="_self">
-		                <input type="text" name="searchName" size="10">
-		                <input type="submit" value="SEARCH TYPE" name="submittname">
-		            </form>
-		        </div>
-		        <div id="type-list">
-		            <?php
-		                $result;
-		                $result = $manager->executePlainSQL("SELECT * FROM pType");
-		                printTypeResult($result);
-		            ?>
-		        </div>
-<?php
-			}
-		?>
+			        if (isset($_SESSION['ID'])) {
+                ?>
+                        <div id="forms">
+                            <form method="GET" id="search" name="searchForm" target="_self">
+                                <input type="text" name="searchName" size="10">
+                                <input type="submit" value="SEARCH TYPE" name="submittname">
+                            </form>
+                        </div>
+                        <div id="type-list">
+                            <?php
+                                $result;
+                                $tmpid = $_SESSION['ID'];
+                                $result = $manager->executePlainSQL("SELECT name, COALESCE (num,0) AS COUNTED From pType LEFT JOIN (SELECT ST.Type_name, COUNT(*) as num FROM PokemonOwnership O, PokemonInstance I, Species_Type ST WHERE O.Pokemon_id = I.id AND O.is_stored = 1 AND I.Species_name = ST.Species_name AND O.Trainer_id = $tmpid GROUP BY ST.Type_name) ON Type_name = name");
+                                printTypeResult($result);
+                            ?>
+                        </div>
+                <?php
+                    }
+                ?>
             </div>
         </div>
 

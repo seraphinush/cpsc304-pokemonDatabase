@@ -12,16 +12,12 @@ p {
 
 /*---- LEFT ----*/
 #form {
-    display: inline;
-    float: left;
-    width: 50%;
+    display: inline-block;
 }
 
 /*---- RIGHT CONTAINER ----*/
 #info {
-    display: inline;
-    float: right;
-    width: 50%;
+    display: inline-block;
 }
 
 /*---- INPUT ----*/

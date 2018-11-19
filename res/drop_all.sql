@@ -1,3 +1,4 @@
+DROP VIEW Biome_Specie_View;
 DROP TABLE PokemonOwnership;
 DROP TABLE Biome_Location;
 DROP TABLE Strength;

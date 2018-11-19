@@ -14,3 +14,4 @@ START table_strength;
 START table_biome_location;
 START table_species_biome;
 START table_pOwnership;
+Start create_view_Biome_Species;

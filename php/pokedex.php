@@ -134,15 +134,25 @@
                                 $querySpecies = true;
                                 $name = $_GET['searchName'];
                                 $name = ucfirst($name);
-                                $result = $manager->executePlainSQL("SELECT * FROM Species WHERE name='$name'");
-                                if ($result && $querySpecies) {
-                                    printPokemonInfoResult($result);
+                                $result_1 = $manager->executePlainSQL("SELECT * FROM Species WHERE name='$name'");
+                                if ($result_1 && $querySpecies) {
+                                    printPokemonInfoResult($result_1);
+                                    // display biomes
                                     echo "<p>HABITAT BIOME(S) : ";
                                     $result_2 = $manager->executePlainSQL("SELECT B.name FROM Biome B, Type_Biome TB, Species_Type ST WHERE B.name=TB.Biome_name AND TB.Type_name=ST.Type_name AND ST.Species_name='$name'");
-                                    $row = OCI_Fetch_Array($result_2, OCI_BOTH);
-                                    echo $row["NAME"];
-                                    while ($row = OCI_Fetch_Array($result_2, OCI_BOTH)) {
-                                        echo " | ".$row["NAME"];
+                                    $row_2 = OCI_Fetch_Array($result_2, OCI_BOTH);
+                                    echo $row_2["NAME"];
+                                    while ($row_2 = OCI_Fetch_Array($result_2, OCI_BOTH)) {
+                                        echo " | ".$row_2["NAME"];
+                                    }
+                                    echo "</p><br/>";
+                                    // display locations
+                                    echo"<p>HABITAT LOCATIONS(S) : ";
+                                    $result_3 = $manager->executePlainSQL("SELECT L.name FROM Location L, Biome_Location BL, Type_Biome TB, Species_Type ST WHERE L.latitude = BL.Latitude AND L.longitude = BL.Longitude AND BL.Biome_name = TB.Biome_name AND TB.Type_name = ST.Type_name AND ST.Species_name = '$name'");
+                                    $row_3 = OCI_Fetch_Array($result_3, OCI_BOTH);
+                                    echo $row_3["NAME"];
+                                    while ($row_3 = OCI_Fetch_Array($result_3, OCI_BOTH)) {
+                                        echo " | ".$row_3["NAME"];
                                     }
                                     echo "</p><br/>";
                                 }
