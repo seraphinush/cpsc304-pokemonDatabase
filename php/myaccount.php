@@ -69,7 +69,7 @@ if ($_GET['logout']) {
 					<p> You are currently logged in as: </p>
 					<?php echo "<p>" . $_SESSION['NAME'] . "</p>";?>
 					<br/><br/>
-					<a href="myaccount.php?logout=1">Logout</a>
+					<a href="myaccount.php?logout=1"><input type="none" value="LOGOUT"></a>
                 </form>
 				<?php } else { ?>
                 <form method="POST" name="accForm" onsubmit="return validateAccForm()" target="_self">

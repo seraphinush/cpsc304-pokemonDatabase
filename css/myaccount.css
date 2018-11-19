@@ -36,6 +36,17 @@ input[type=text] {
     background-color: #ffffff00;
 }
 
+input[type=none] {
+    font-family: 'Segoe UI';
+    font-size: 12px;
+    text-decoration: none;
+    text-align: center;
+    background-color: #56B4E9;
+    border: none;
+    padding: 7px 12px;
+    cursor: pointer;
+}
+
 input:hover {
     -webkit-transition-duration: 0.4s;
     -moz-transition-duration: 0.4s;
