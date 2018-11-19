@@ -91,10 +91,8 @@
                 <div id="mypokemon-info">
                     <?php
                         // ---- PHP HERE ----
-			echo "hello";
-			if (array_key_exists('addAction', $_GET)) {
-				echo "Got Here";
-				/*$tmpSpecies = $_GET["addSpecies"];
+			if (array_key_exists('addAction', $_POST)) {
+				$tmpSpecies = $_GET["addSpecies"];
 				$tmpExp = $_GET["addExperience"];
 				$tmpLevel = $_GET["addLevel"];
 				$tmpWeight = $_GET["addWeight"];
@@ -112,13 +110,10 @@
                             	$tmpTid = $_SESSION['ID'];
 				$manager->executePlainSQL("INSERT INTO pokemonInstance (id, Species_name, exp, pokelevel, Weight, Height, Nickname) Values ('$tmpid','$tmpSpecies','$tmpExp','$tmpLevel','$tmpWeight','$tmpHeight','$tmpNickname')");
 				$manager->executePlainSQL("INSERT INTO pokemonOwnership (Pokemon_id, Trainer_id, is_Stored) Values ('$tmpid','$tmpTid',0)");
-				echo "Finished";*/
-			} else if (array_key_exists('store', $_GET)) {
-				echo "STORE";
+			} else if (array_key_exists('store', $_POST)) {
 				$tmpid = $_GET['storeID'];
 				$manager->executePlainSQL("UPDATE pokemonOwnership SET is_stored = 1 WHERE pokemon_id = '$tmpid'");
-			} else if (array_key_exists('delete', $_GET)) {
-				echo "DELETE";
+			} else if (array_key_exists('delete', $_POST)) {
 				$tmpid = $_GET['deleteID'];
 				$manager->executePlainSQL("DELETE FROM pokemonInstance WHERE id = '$tmpid'");
 			}
