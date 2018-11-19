@@ -72,7 +72,7 @@
         <div id="content">
             <div id="storage-container">
                 <?php
-                    if (isset($_SESSION['ID']) && !array_key_exists('submittname', $_GET)) {
+                    if (isset($_SESSION['ID']) && !array_key_exists('submittname', $_GET) && !array_key_exists('submitwithdraw', $_GET)) {
                         try {
                             $tmpid = $_SESSION['ID'];
                             $result = $manager->executePlainSQL("SELECT COUNT(*) FROM PokemonInstance I, PokemonOwnership O WHERE I.id = O.Pokemon_id AND O.Trainer_id = '$tmpid' AND O.is_stored = 1");
@@ -97,7 +97,11 @@
                         echo "Total Pokemon of this Type: " . $result[0] . "</br></br>";
                         $result = $manager->executePlainSQL("SELECT I.ID, I.nickname FROM PokemonInstance I, PokemonOwnership O, Species_type T WHERE I.id = O.Pokemon_id AND I.Species_name = T.Species_name AND O.Trainer_id = '$tmpid' AND O.is_stored = 1 AND T.Type_name = '$type'");
                         printResult($result);
-		            } else {
+		     } else if(isset($_SESSION['ID']) && array_key_exists('submitwithdraw', $_GET)) {
+				$tmpid = $_POST['withdrawID'];
+				$manager->executePlainSQL("UPDATE pokemonOwnership SET is_stored = 0 WHERE pokemon_id = '$tmpid'");
+	                        header('Location:./storage.php');
+			} else {
                         echo "Please sign in or create an account to see your stored pokemon!";
                     }
 			        if (isset($_SESSION['ID'])) {
@@ -108,7 +112,7 @@
                                 <input type="submit" value="SEARCH TYPE" name="submittname">
                             </form>
                             <form method="GET" id="withdraw" name="withdrawForm" target="_self">
-                                <input type="text" name="withdrawName" size="10">
+                                <input type="text" name="withdrawID" size="10">
                                 <input type="submit" value="WITHDRAW" name="submitwithdraw">
                             </form>
                         </div>
