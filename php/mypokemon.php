@@ -73,73 +73,75 @@
         <!-- CONTENT -->
         <div id="content">
             <div id="mypokemon-container">
-		<?php if (isset($_SESSION['ID'])) { ?>
-                <div id="form">
-                    <form method="POST" name="addForm" target="_self">
-                        <p>POKEMON SPECIES : <input type="text" name="addSpecies" size="10"></p>
-                        <p>POKEMON NICKNAME : <input type="text" name="addNickname" size="10"></p>
-                        <p>LEVEL : <input type="text" name="addLevel" size="10"></p>
-                        <p>WEIGHT : <input type="text" name="addWeight" size="10"></p>
-                        <p>HEIGHT : <input type="text" name="addHeight" size="10"></p>
-                        <p>EXPERIENCE : <input type="text" name="addExperience" size="10"></p>
-                        <input type="submit" value="ADD NEW POKEMON" name="addAction"><br/>
-                        <p>POKEMON ID TO STORE : <input type="text" name="storeID" size="10"></p>
-                        <input type="submit" value="STORE" name="store"><br/>
-                        <p>POKEMON ID TO DELETE : <input type="text" name="deleteID" size="10"></p>
-                        <input type="submit" value="DELETE" name="delete"><br/>
-                    </form>
-                </div>
-                <div id="mypokemon-info">
-                    <?php
+                <?php if (isset($_SESSION['ID'])) { ?>
+                    <div id="form">
+                        <form method="POST" name="addForm" target="_self">
+                            <p>POKEMON SPECIES : <input type="text" name="addSpecies" size="10"></p>
+                            <p>POKEMON NICKNAME : <input type="text" name="addNickname" size="10"></p>
+                            <p>LEVEL : <input type="text" name="addLevel" size="10"></p>
+                            <p>WEIGHT : <input type="text" name="addWeight" size="10"></p>
+                            <p>HEIGHT : <input type="text" name="addHeight" size="10"></p>
+                            <p>EXPERIENCE : <input type="text" name="addExperience" size="10"></p>
+                            <input type="submit" value="ADD NEW POKEMON" name="addAction">
+                            <br/><br/>
+                            <p>POKEMON ID TO : <input type="text" name="pokemonID" size="10"></p>
+                            <input type="submit" value="SIMULATE BATTLE" name="simulate"><br/>
+                            <input type="submit" value="LEVEL UP" name="levelup"><br/>
+                            <input type="submit" value="EVOLVE" name="evolve"><br/>
+                            <input type="submit" value="STORE" name="store"><br/>
+                            <input type="submit" value="DELETE" name="delete"><br/>
+                        </form>
+                    </div>
+                    <div id="mypokemon-info">
+                        <?php
                         // ---- PHP HERE ----
-			if (array_key_exists('addAction', $_POST)) {
-				$tmpSpecies = $_POST["addSpecies"];
-				$tmpExp = $_POST["addExperience"];
-				$tmpLevel = $_POST["addLevel"];
-				$tmpWeight = $_POST["addWeight"];
-				$tmpHeight = $_POST["addHeight"];
-				$tmpNickname = $_POST["addNickname"];
-				$maxId = $manager->executePlainSQL("SELECT MAX(id) FROM pokemonInstance"); // force-make unique id
-                                $maxId = OCI_Fetch_Array($maxId, OCI_BOTH);
-                                $maxId = $maxId[0];
-                                if (is_nan($maxId) || $maxId === 0) {
-                                    $maxId = 0;
-                                } else {
-                                    $maxId++;
-                                }
-                                $tmpid = $maxId;
-                            	$tmpTid = $_SESSION['ID'];
-				$manager->executePlainSQL("INSERT INTO pokemonInstance (id, Species_name, exp, pokelevel, Weight, Height, Nickname) Values ('$tmpid','$tmpSpecies','$tmpExp','$tmpLevel','$tmpWeight','$tmpHeight','$tmpNickname')");
-				$manager->executePlainSQL("INSERT INTO pokemonOwnership (Pokemon_id, Trainer_id, is_Stored) Values ('$tmpid','$tmpTid',0)");
-			} else if (array_key_exists('store', $_POST)) {
-				$tmpid = $_POST['storeID'];
-				$manager->executePlainSQL("UPDATE pokemonOwnership SET is_stored = 1 WHERE pokemon_id = '$tmpid'");
-			} else if (array_key_exists('delete', $_POST)) {
-				$tmpid = $_POST['deleteID'];
-				$manager->executePlainSQL("DELETE FROM pokemonInstance WHERE id = '$tmpid'");
-			}
-                        if (isset($_SESSION['ID'])) {
-                        try {
-                            $tmpid = $_SESSION['ID'];
-                            $result = $manager->executePlainSQL("SELECT I.ID, I.nickname FROM PokemonInstance I, PokemonOwnership O WHERE I.id = O.Pokemon_id AND O.Trainer_id = '$tmpid' AND O.is_stored = 0");
-                            if ($result) {
-                                printResult($result);
+                        if (array_key_exists('addAction', $_POST)) {
+                            $tmpSpecies = $_POST["addSpecies"];
+                            $tmpExp = $_POST["addExperience"];
+                            $tmpLevel = $_POST["addLevel"];
+                            $tmpWeight = $_POST["addWeight"];
+                            $tmpHeight = $_POST["addHeight"];
+                            $tmpNickname = $_POST["addNickname"];
+                            $maxId = $manager->executePlainSQL("SELECT MAX(id) FROM pokemonInstance"); // force-make unique id
+                            $maxId = OCI_Fetch_Array($maxId, OCI_BOTH);
+                            $maxId = $maxId[0];
+                            if (is_nan($maxId) || $maxId === 0) {
+                                $maxId = 0;
                             } else {
-                                echo "<font color='E69F00'>Unsuccessful.</font>";
+                                $maxId++;
                             }
-                            OCICommit($db_conn);
-                        } catch (Exception $e) {
-                            echo htmlentities($e['message']);
+                            $tmpid = $maxId;
+                            $tmpTid = $_SESSION['ID'];
+                            $manager->executePlainSQL("INSERT INTO pokemonInstance (id, Species_name, exp, pokelevel, Weight, Height, Nickname) Values ('$tmpid','$tmpSpecies','$tmpExp','$tmpLevel','$tmpWeight','$tmpHeight','$tmpNickname')");
+                            $manager->executePlainSQL("INSERT INTO pokemonOwnership (Pokemon_id, Trainer_id, is_Stored) Values ('$tmpid','$tmpTid',0)");
+                        } else if (array_key_exists('store', $_POST)) {
+                            $tmpid = $_POST['pokemonID'];
+                            $manager->executePlainSQL("UPDATE pokemonOwnership SET is_stored = 1 WHERE pokemon_id = '$tmpid'");
+                        } else if (array_key_exists('delete', $_POST)) {
+                            $tmpid = $_POST['pokemonID'];
+                            $manager->executePlainSQL("DELETE FROM pokemonInstance WHERE id = '$tmpid'");
                         }
-                    }
-		 } else {
-		echo "Please sign in or create an account to see your pokemon!";
-		} 
-		?>
+                            if (isset($_SESSION['ID'])) {
+                            try {
+                                $tmpid = $_SESSION['ID'];
+                                $result = $manager->executePlainSQL("SELECT I.ID, I.nickname FROM PokemonInstance I, PokemonOwnership O WHERE I.id = O.Pokemon_id AND O.Trainer_id = '$tmpid' AND O.is_stored = 0");
+                                if ($result) {
+                                    printResult($result);
+                                } else {
+                                    echo "<font color='E69F00'>Unsuccessful.</font>";
+                                }
+                                OCICommit($db_conn);
+                            } catch (Exception $e) {
+                                echo htmlentities($e['message']);
+                            }
+                        }
+                    } else {
+                    echo "Please sign in or create an account to see your pokemon!";
+                    } 
+                        ?>
                 </div>
             </div>
         </div>
-
     </div>
 </body>
 </html>
