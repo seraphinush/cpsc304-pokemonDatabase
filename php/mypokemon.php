@@ -82,9 +82,9 @@
                         <p>HEIGHT : <input type="text" name="addHeight" size="10"></p>
                         <p>EXPERIENCE : <input type="text" name="addExperience" size="10"></p>
                         <input type="submit" value="ADD NEW POKEMON" name="addAction"><br/>
-                        <p>POKEMON NICKNAME TO STORE : <input type="text" name="store" size="10"></p>
+                        <p>POKEMON NICKNAME TO STORE : <input type="text" name="storeID" size="10"></p>
                         <input type="submit" value="STORE" name="store"><br/>
-                        <p>POKEMON NICKNAME TO DELETE : <input type="text" name="delete" size="10"></p>
+                        <p>POKEMON NICKNAME TO DELETE : <input type="text" name="deleteID" size="10"></p>
                         <input type="submit" value="DELETE" name="delete"><br/>
                     </form>
                 </div>
@@ -115,8 +115,12 @@
 				echo "Finished";*/
 			} else if (array_key_exists('store', $_GET)) {
 				echo "STORE";
+				$tmpid = $_GET['storeID'];
+				$manager->executePlainSQL("UPDATE pokemonOwnership SET is_stored = 1 WHERE pokemon_id = '$tmpid'");
 			} else if (array_key_exists('delete', $_GET)) {
 				echo "DELETE";
+				$tmpid = $_GET['deleteID'];
+				$manager->executePlainSQL("DELETE FROM pokemonInstance WHERE id = '$tmpid'");
 			}
                         if (isset($_SESSION['ID'])) {
                         try {
