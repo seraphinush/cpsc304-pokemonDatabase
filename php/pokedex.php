@@ -47,8 +47,8 @@
             }
             echo "</p><br/>";
             echo "<p>DESCRIPTION : ".$row["DESCRIPTION"]."</p><br/>";
-            echo "<p>HEIGHT : ".$row["MINHEIGHT"]."~".$row["MAXHEIGHT"]."</p><br/>";
-            echo "<p>WEIGHT : ".$row["MINWEIGHT"]."~".$row["MAXWEIGHT"]."</p><br/>";
+            echo "<p>HEIGHT : ".$row["MINHEIGHT"]."~".$row["MAXHEIGHT"]."m</p><br/>";
+            echo "<p>WEIGHT : ".$row["MINWEIGHT"]."~".$row["MAXWEIGHT"]."g</p><br/>";
         }
     }
 ?>

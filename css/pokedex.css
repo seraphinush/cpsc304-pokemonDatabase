@@ -4,7 +4,6 @@
     max-width: 80%;
     height: inherit;
     max-height: 80%;
-    float: left;
     margin: 0px 15px 0px 15px;
     overflow: hidden;
 }
@@ -15,7 +14,7 @@
 
 #pokedex-container > div {
     flex: 1;
-  }
+}
 
 /*---- TYPE LIST ----*/
 #type-list {
