@@ -1,0 +1,83 @@
+#storage-container {
+    font-size: 12;
+    text-transform: uppercase;
+    display: flex;
+    height: inherit;
+    max-height: 80%;
+    float: left;
+    margin: 0px 15px 0px 15px;
+    overflow: hidden;
+}
+
+table {
+    font-family: 'Segoe UI';
+    font-size: 12px;
+    text-decoration: none;
+}
+
+/*---- TYPE LIST ----*/
+#type-list {
+    display: block;
+    float: right;
+    max-width: 100px;
+    border-right: 3px solid #ffecce;
+    padding: 0px 10px 0px 0px;
+    overflow: scroll;
+}
+
+#type-list::-webkit-scrollbar { 
+    display: none;
+}
+
+.type-list-item {
+    display: block;
+    max-width: inherit;
+    background-color: #ffecce;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    margin: 10px 0px;
+    padding: 5px;
+}
+
+.type-list-item:hover {
+    -webkit-transition-duration: 0.4s;
+    -moz-transition-duration: 0.4s;
+    -o-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    background-color: #ffffff88;
+}
+
+.type-list-item:active {
+    color: #ffffffff;
+}
+
+/*---- INPUT ----*/
+input[type=submit] {
+    font-family: 'Segoe UI';
+    font-size: 12px;
+    text-decoration: none;
+    background-color: #ffecce;
+    border: none;
+    padding: 7px 12px;
+    cursor: pointer;
+}
+
+input[type=text] {
+    font-family: 'Segoe UI';
+    font-size: 12px;
+    text-decoration: none;
+    background-color: #ffffff00;
+}
+
+input:hover {
+    -webkit-transition-duration: 0.4s;
+    -moz-transition-duration: 0.4s;
+    -o-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    background-color: #ffffff88;
+}
+
+input:active {
+    color: #ffffffff;
+}
