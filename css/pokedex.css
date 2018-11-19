@@ -1,7 +1,7 @@
-/*---- LEFT SIDE ----*/
-#pokedex-left {
+/*---- POKEDEX CONTAINER ----*/
+#pokedex-container {
     display: flex;
-    max-width: 500px;
+    max-width: 80%;
     height: inherit;
     max-height: 80%;
     float: left;
@@ -9,18 +9,18 @@
     overflow: hidden;
 }
 
-#pokedex-left::-webkit-scrollbar { 
+#pokedex-container::-webkit-scrollbar { 
     display: none;
 }
 
-#pokedex-left > div {
+#pokedex-container > div {
     flex: 1;
   }
 
 /*---- TYPE LIST ----*/
 #type-list {
     display: block;
-    max-width: 250px;
+    max-width: 100px;
     border-right: 3px solid #ffecce;
     padding: 0px 10px 0px 0px;
     overflow: scroll;
@@ -57,7 +57,7 @@
 #pokedex-list {
     display: block;
     min-width: 100px;
-    max-width: 250px;
+    max-width: 120px;
     border-right: 3px solid #ffecce;
     padding: 0px 10px;
     overflow: scroll;
@@ -90,17 +90,50 @@
     color: #ffffffff;
 }
 
-.pokemon-list-item-right {
-    text-transform: capitalize;
-}
-
 /*---- RIGHT SIDE ----*/
-#pokedex-right {
-    min-width: 50%;
-    float: left;
-    overflow: auto;
+#forms {
+    display: inline;
 }
 
-#pokedex-right::-webkit-scrollbar { 
+#info-right {
+    display: block;
+    max-width: 50%;
+    max-height: inherit;
+    margin: 10px 15px 0px 15px;
+    padding: 0px 10px 0px 0px;
+    overflow: scroll;
+}
+
+#info-right::-webkit-scrollbar { 
     display: none;
+}
+
+/*---- INPUT ----*/
+input[type=submit] {
+    font-family: 'Segoe UI';
+    font-size: 12px;
+    text-decoration: none;
+    background-color: #ffecce;
+    border: none;
+    padding: 7px 12px;
+    cursor: pointer;
+}
+
+input[type=text] {
+    font-family: 'Segoe UI';
+    font-size: 12px;
+    text-decoration: none;
+    background-color: #ffffff00;
+}
+
+input:hover {
+    -webkit-transition-duration: 0.4s;
+    -moz-transition-duration: 0.4s;
+    -o-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    background-color: #ffffff88;
+}
+
+input:active {
+    color: #ffffffff;
 }

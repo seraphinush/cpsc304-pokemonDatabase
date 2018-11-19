@@ -5,10 +5,10 @@
     function printTypeResult($typeResult) {
         if ($typeResult) {
             while ($row = OCI_Fetch_Array($typeResult, OCI_BOTH)) {
-                $tempType;
-                $tempType = $row[0];
-                $tempType = trim($tempType);
-                echo '<div class="type-list-item" onclick="makeTypeQuery(`'.$tempType.'`)"><span>'.$tempType.'</span></div>';
+                $temp;
+                $temp = $row[0];
+                $temp = trim($temp);
+                echo '<div class="type-list-item" onclick="searchQuery(`'.$temp.'`)"><span>'.$temp.'</span></div>';
             }
         }
     }
@@ -16,14 +16,39 @@
     function printDexResult($dexResult) {
         if ($dexResult) {
             while ($row = OCI_Fetch_Array($dexResult, OCI_BOTH)) {
-                echo '<div class="pokedex-list-item"><span>'.$row[0].'</span></div>';
+                $temp;
+                $temp = $row[0];
+                $temp = trim($temp);
+                echo '<div class="pokedex-list-item" onclick="searchQuery(`'.$temp.'`)"><span>'.$row[0].'</span></div>';
             }
         }
     }
 
-    function printResult($result) {
+    function printTypeInfoResult($result) {
         while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
-            echo $row[0];
+            echo "<p>".$row[0]."</p><br/>";
+        }
+    }
+
+    function printPokemonInfoResult($result) {
+        while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
+            echo "<p>NAME : ".$row["NAME"]."</p><br/>";
+            echo "<p>RARITY : ";
+            if ($row["RARITY"] == 0) {
+                echo "Common";
+            } else if ($row["RARITY"] == 1) {
+                echo "Uncommon";
+            } else if ($row["RARITY"] == 2) {
+                echo "Legendary";
+            } else if ($row["RARITY"] == 3) {
+                echo "Mythical";
+            } else { // error check
+                echo "Error";
+            }
+            echo "</p><br/>";
+            echo "<p>DESCRIPTION : ".$row["DESCRIPTION"]."</p><br/>";
+            echo "<p>HEIGHT : ".$row["MINHEIGHT"]."~".$row["MAXHEIGHT"]."</p><br/>";
+            echo "<p>WEIGHT : ".$row["MINWEIGHT"]."~".$row["MAXWEIGHT"]."</p><br/>";
         }
     }
 ?>
@@ -34,10 +59,9 @@
     <link rel="stylesheet" type="text/css" href="../css/pokedex.css">
 
     <script>
-        function makeTypeQuery(pName) {
-            name = pName.trim();
-            document.forms.typeForm.typeName.value = name;
-            document.forms.typeForm.submit();
+        function searchQuery(name) {
+            name = name.trim();
+            document.forms.searchForm.searchName.value = name;
         }
     </script>
 </head>
@@ -73,36 +97,45 @@
         <!-- CONTENT -->
         <div id="content">
             <div id="pokedex-container">
-                <div id="pokedex-left">
-                    <div id="type-list">
-                        <?php
-                            $result;
-                            $result = $manager->executePlainSQL("SELECT * FROM pType");
-                            printTypeResult($result);
-                        ?>
-                    </div>
-                    <div id="pokedex-list">
-                        <?php
-                            $result;
-                            $result = $manager->executePlainSQL("SELECT name FROM Species");
-                            printDexResult($result);
-                        ?>
-                    </div>
+                <div id="type-list">
+                    <?php
+                        $result;
+                        $result = $manager->executePlainSQL("SELECT * FROM pType");
+                        printTypeResult($result);
+                    ?>
                 </div>
-                <div id="pokedex-right">
-                    <div class="hidden">
-                        <form method="GET" name="typeForm" target="_self">
-                            <input type="text" name="typeName" size="10">
-                            <input type="submit" value="" name="submittname">
+                <div id="pokedex-list">
+                    <?php
+                        $result;
+                        $result = $manager->executePlainSQL("SELECT name FROM Species");
+                        printDexResult($result);
+                    ?>
+                </div>
+                <div id="info-right">
+                    <div id="forms">
+                        <form method="GET" id="search" name="searchForm" target="_self">
+                            <input type="text" name="searchName" size="10">
+                            <input type="submit" value="SEARCH TYPE" name="submittname">
+                            <input type="submit" value="SEARCH POKEMON" name="submitsname">
                         </form>
                     </div>
-                    <div id="pokedex-entry">
+                    <div id="pokedex-info">
                         <?php
-                            echo "run";
+                            $name;
                             if (array_key_exists('submittname', $_GET)) {
-                                $name = $_GET["typeName"];
-                                $result = $manager->executePlainSQL("select * from Species_Type where type_name='$name'");
-		                        printResult($result);
+                                if (true) {
+                                    $name = $_GET["searchName"];
+                                    $name = ucfirst($name);
+                                    $result = $manager->executePlainSQL("SELECT * FROM Species_Type where type_name='$name'");
+                                    printTypeInfoResult($result);
+                                } else {
+                                    echo "ERROR";
+                                }
+                            } else if (array_key_exists('submitsname', $_GET)) {
+                                $name = $_GET['searchName'];
+                                $name = ucfirst($name);
+                                $result = $manager->executePlainSQL("SELECT * FROM Species WHERE name='$name'");
+                                printPokemonInfoResult($result);
                             }
                         ?>
                     </div>
