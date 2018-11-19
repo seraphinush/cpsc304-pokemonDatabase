@@ -2,7 +2,6 @@
 	ini_set('session.save_path', getcwd() . "/../../../public_html_sessions");
     $start = session_start(); 
     
-    
     include 'dbmanager.php';
     $manager = DBManager::Instance();
 

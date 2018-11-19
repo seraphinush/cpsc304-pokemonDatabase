@@ -1,21 +1,48 @@
 <?php
 	ini_set('session.save_path', getcwd() . "/../../../public_html_sessions");
-	$start = session_start(); 
+    $start = session_start();
+    
+    include 'dbmanager.php';
+    $manager = DBManager::Instance();
+
+    // this is some random function
+    function printResult($result) { //prints results from a select statement
+        echo "<table>";
+        echo "<tr><th>ID</th><th>Name</th></tr>";
+    
+        while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
+            echo "<tr><td>" . $row["ID"] . "</td><td>" . $row["NICKNAME"] . "</td></tr>"; //or just use "echo $row[0]" 
+        }
+        echo "</table>";
+    
+    }
 ?>
 
 <html>
-
 <head>
-
     <link rel="stylesheet" type="text/css" href="../main.css">
+    <link rel="stylesheet" type="text/css" href="../css/mypokemon.css">
 
     <script>
+        function validateAccForm() {
+            let myName = document.forms["accForm"]["accUsername"].value;
+            let myPass = document.forms["accForm"]["accPassword"].value;
+            if (myName === "" || myPass === "") {
+                alert("Fields cannot be empty.");
+                document.getElementById("loginresult").innerHTML = "<font color='E69F00'>Fields cannot be empty.</font>";
+                return false;
+            } else if (myPass.length < 1) {
+                alert("Passwords must be longer than 4 characters.");
+                document.getElementById("loginresult").innerHTML = "<font color='E69F00'>Passwords must be longer than 4 characters.</font>";
+                return false;
+            } else {
+                return true;
+            }
+        }
     </script>
-
 </head>
 
 <body>
-
     <div id="container">
 
         <!-- HEADER -->
@@ -45,47 +72,31 @@
 
         <!-- CONTENT -->
         <div id="content">
-            <div id="mypokemon">
-                <?php
-include 'dbmanager.php';
-$manager = DBManager::Instance();
-
-function printResult($result) { //prints results from a select statement
-	echo "<table>";
-	echo "<tr><th>ID</th><th>Name</th></tr>";
-
-	while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
-		echo "<tr><td>" . $row["ID"] . "</td><td>" . $row["NICKNAME"] . "</td></tr>"; //or just use "echo $row[0]" 
-	}
-	echo "</table>";
-
-}
-
-	if (isset($_SESSION['ID'])) {
-		try {
-			$tmpid = $_SESSION['ID'];
-			$result = $manager->executePlainSQL("SELECT I.ID, I.nickname FROM PokemonInstance I, PokemonOwnership O WHERE I.id = O.Pokemon_id AND O.Trainer_id = '$tmpid' AND O.is_stored = 0");
-			if ($result) {
-				printResult($result);
-			} else {
-				echo "<font color='E69F00'>Unsuccessful.</font>";
-			}
-			OCICommit($db_conn);
-		} catch (Exception $e) {
-			echo htmlentities($e['message']);
-		}
-	} else {
-		echo "Please sign in or create an account to see your active pokemon!";
-	}
-
-		?>
+            <div id="mypokemon-container">
+                <div id="form">
+                    <form method="POST" name="addForm" onsubmit="return validateAccForm()" target="_self">
+                        <p>POKEMON NAME : <input type="text" name="addSpecies" size="10"></p>
+                        <p>POKEMON NICKNAME : <input type="text" name="addNickname" size="10"></p>
+                        <p>LEVEL : <input type="text" name="addLevel" size="10"></p>
+                        <p>WEIGHT : <input type="text" name="addWeight" size="10"></p>
+                        <p>HEIGHT : <input type="text" name="addHeight" size="10"></p>
+                        <p>EXPERIENCE : <input type="text" name="addExperience" size="10"></p>
+                        <input type="submit" value="ADD NEW POKEMON" name="add"><br/>
+                        <p>POKEMON NICKNAME TO STORE : <input type="text" name="store" size="10"></p>
+                        <input type="submit" value="STORE" name="store"><br/>
+                        <p>POKEMON NICKNAME TO DELETE : <input type="text" name="delete" size="10"></p>
+                        <input type="submit" value="STORE" name="store"><br/>
+                    </form>
+                </div>
+                <div id="mypokemon-info">
+                    <?php
+                        // ---- PHP HERE ----
+                        echo "<p>CONTENT STUB</p>";
+                    ?>
+                </div>
             </div>
         </div>
 
     </div>
-
-
-
 </body>
-
 </html>

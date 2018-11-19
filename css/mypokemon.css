@@ -1,21 +1,27 @@
-#myaccount {
+/*---- MYPOKEMON CONTAINER ----*/
+#mypokemon-container {
     display: inherit;
     position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    text-align: center;
 }
 
-#myaccount form p {
-    font-size: 12px;
-    margin: 0px 0px 0px -3px;
-    padding: 0;
-}
-
-#myaccount p {
+p {
     font-size: 12px;
     margin: 0;
     padding: 0;
+}
+
+/*---- LEFT ----*/
+#form {
+    display: inline;
+    float: left;
+    width: 50%;
+}
+
+/*---- RIGHT CONTAINER ----*/
+#info {
+    display: inline;
+    float: right;
+    width: 50%;
 }
 
 /*---- INPUT ----*/
