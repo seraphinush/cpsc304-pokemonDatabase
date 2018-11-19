@@ -18,7 +18,8 @@
 /*---- TYPE LIST ----*/
 #type-list {
     display: block;
-    max-width: 100px;
+    min-width: 60px;
+    max-width: 70px;
     border-right: 3px solid #ffecce;
     padding: 0px 10px 0px 0px;
     overflow: scroll;
@@ -54,8 +55,8 @@
 /*---- POKEDEX LIST ----*/
 #pokedex-list {
     display: block;
-    min-width: 100px;
-    max-width: 120px;
+    min-width: 90px;
+    max-width: 100px;
     border-right: 3px solid #ffecce;
     padding: 0px 10px;
     overflow: scroll;
